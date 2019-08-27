@@ -1,0 +1,3096 @@
+L 1 "..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_spi.c"
+N/******************** (C) COPYRIGHT 2008 STMicroelectronics ********************
+N* File Name          : stm32f10x_spi.c
+N* Author             : MCD Application Team
+N* Version            : V2.0 
+N* Date               : 05/23/2008
+N* Description        : This file provides all the SPI firmware functions.
+N********************************************************************************
+N* THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+N* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+N* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+N* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+N* CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+N* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+N* FOR MORE INFORMATION PLEASE CAREFULLY READ THE LICENSE AGREEMENT FILE LOCATED 
+N* IN THE ROOT DIRECTORY OF THIS FIRMWARE PACKAGE.
+N*******************************************************************************/
+N
+N/* Includes ------------------------------------------------------------------*/
+N#include "stm32f10x_spi.h"
+L 1 "..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h" 1
+N/******************** (C) COPYRIGHT 2008 STMicroelectronics ********************
+N* File Name          : stm32f10x_spi.h
+N* Author             : MCD Application Team
+N* Version            : V2.0
+N* Date               : 05/23/2008
+N* Description        : This file contains all the functions prototypes for the
+N*                      SPI firmware library.
+N********************************************************************************
+N* THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+N* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+N* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+N* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+N* CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+N* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+N* FOR MORE INFORMATION PLEASE CAREFULLY READ THE LICENSE AGREEMENT FILE LOCATED 
+N* IN THE ROOT DIRECTORY OF THIS FIRMWARE PACKAGE.
+N*******************************************************************************/
+N
+N/* Define to prevent recursive inclusion -------------------------------------*/
+N#ifndef __STM32F10x_SPI_H
+N#define __STM32F10x_SPI_H
+N
+N/* Includes ------------------------------------------------------------------*/
+N#include "stm32f10x_map.h"
+L 1 "..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h" 1
+N/******************** (C) COPYRIGHT 2008 STMicroelectronics ********************
+N* File Name          : stm32f10x_map.h
+N* Author             : MCD Application Team
+N* Version            : V2.0
+N* Date               : 05/23/2008
+N* Description        : This file contains all the peripheral register's definitions
+N*                      and memory mapping.
+N********************************************************************************
+N* THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+N* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+N* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+N* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+N* CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+N* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+N* FOR MORE INFORMATION PLEASE CAREFULLY READ THE LICENSE AGREEMENT FILE LOCATED 
+N* IN THE ROOT DIRECTORY OF THIS FIRMWARE PACKAGE.
+N*******************************************************************************/
+N
+N/* Define to prevent recursive inclusion -------------------------------------*/
+N#ifndef __STM32F10x_MAP_H
+N#define __STM32F10x_MAP_H
+N
+N#ifndef EXT
+N  #define EXT extern
+N#endif /* EXT */
+N
+N/* Includes ------------------------------------------------------------------*/
+N#include "stm32f10x_conf.h"
+L 1 ".\stm32f10x_conf.h" 1
+N/******************** (C) COPYRIGHT 2007 STMicroelectronics ********************
+N* File Name          : stm32f10x_conf.h
+N* Author             : MCD Application Team
+N* Date First Issued  : 05/21/2007
+N* Description        : Library configuration file.
+N********************************************************************************
+N* History:
+N* 05/21/2007: V0.1
+N********************************************************************************
+N* THE PRESENT SOFTWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+N* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+N* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+N* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+N* CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+N* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+N*******************************************************************************/
+N
+N/* Define to prevent recursive inclusion -------------------------------------*/
+N#ifndef __STM32F10x_CONF_H
+N#define __STM32F10x_CONF_H
+N
+N/* Includes ------------------------------------------------------------------*/
+N#include "stm32f10x_type.h"
+L 1 "..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h" 1
+N/******************** (C) COPYRIGHT 2008 STMicroelectronics ********************
+N* File Name          : stm32f10x_type.h
+N* Author             : MCD Application Team
+N* Version            : V2.0
+N* Date               : 05/23/2008
+N* Description        : This file contains all the common data types used for the
+N*                      STM32F10x firmware library.
+N********************************************************************************
+N* THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+N* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+N* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+N* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+N* CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+N* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+N* FOR MORE INFORMATION PLEASE CAREFULLY READ THE LICENSE AGREEMENT FILE LOCATED 
+N* IN THE ROOT DIRECTORY OF THIS FIRMWARE PACKAGE.
+N*******************************************************************************/
+N
+N/* Define to prevent recursive inclusion -------------------------------------*/
+N#ifndef __STM32F10x_TYPE_H
+N#define __STM32F10x_TYPE_H
+N
+N/* Includes ------------------------------------------------------------------*/
+N/* Exported types ------------------------------------------------------------*/
+Ntypedef signed long  s32;
+Ntypedef signed short s16;
+Ntypedef signed char  s8;
+N
+Ntypedef signed long  const sc32;  /* Read Only */
+Ntypedef signed short const sc16;  /* Read Only */
+Ntypedef signed char  const sc8;   /* Read Only */
+N
+Ntypedef volatile signed long  vs32;
+Ntypedef volatile signed short vs16;
+Ntypedef volatile signed char  vs8;
+N
+Ntypedef volatile signed long  const vsc32;  /* Read Only */
+Ntypedef volatile signed short const vsc16;  /* Read Only */
+Ntypedef volatile signed char  const vsc8;   /* Read Only */
+N
+Ntypedef unsigned long  u32;
+Ntypedef unsigned short u16;
+Ntypedef unsigned char  u8;
+N
+Ntypedef unsigned long  const uc32;  /* Read Only */
+Ntypedef unsigned short const uc16;  /* Read Only */
+Ntypedef unsigned char  const uc8;   /* Read Only */
+N
+Ntypedef volatile unsigned long  vu32;
+Ntypedef volatile unsigned short vu16;
+Ntypedef volatile unsigned char  vu8;
+N
+Ntypedef volatile unsigned long  const vuc32;  /* Read Only */
+Ntypedef volatile unsigned short const vuc16;  /* Read Only */
+Ntypedef volatile unsigned char  const vuc8;   /* Read Only */
+N
+Ntypedef enum {FALSE = 0, TRUE = !FALSE} bool;
+N
+Ntypedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;
+N
+Ntypedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;
+N#define IS_FUNCTIONAL_STATE(STATE) (((STATE) == DISABLE) || ((STATE) == ENABLE))
+N
+Ntypedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
+N
+N#define U8_MAX     ((u8)255)
+N#define S8_MAX     ((s8)127)
+N#define S8_MIN     ((s8)-128)
+N#define U16_MAX    ((u16)65535u)
+N#define S16_MAX    ((s16)32767)
+N#define S16_MIN    ((s16)-32768)
+N#define U32_MAX    ((u32)4294967295uL)
+N#define S32_MAX    ((s32)2147483647)
+N#define S32_MIN    ((s32)-2147483648)
+N
+N/* Exported constants --------------------------------------------------------*/
+N/* Exported macro ------------------------------------------------------------*/
+N/* Exported functions ------------------------------------------------------- */
+N
+N#endif /* __STM32F10x_TYPE_H */
+N
+N/******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/
+L 24 ".\stm32f10x_conf.h" 2
+N
+N/* Exported types ------------------------------------------------------------*/
+N/* Exported constants --------------------------------------------------------*/
+N/* Uncomment the line below to compile the library in DEBUG mode, this will expanse
+N   the "assert" macro in the firmware library code (see "Exported macro" section below) */
+N//#define DEBUG
+N
+N/* Comment the line below to disable the specific peripheral inclusion */
+N/************************************* ADC ************************************/
+N#define _ADC
+N#define _ADC1
+N#define _ADC2
+N
+N/************************************* BKP ************************************/
+N#define _BKP
+N
+N/************************************* CAN ************************************/
+N//#define _CAN
+N
+N/************************************* DMA ************************************/
+N//#define _DMA
+N//#define _DMA_Channel1
+N//#define _DMA_Channel2
+N//#define _DMA_Channel3
+N//#define _DMA_Channel4
+N//#define _DMA_Channel5
+N//#define _DMA_Channel6
+N//#define _DMA_Channel7
+N
+N/************************************* EXTI ***********************************/
+N#define _EXTI
+N
+N/************************************* FLASH and Option Bytes *****************/
+N#define _FLASH
+N/* Uncomment the line below to enable FLASH program/erase/protections functions,
+N   otherwise only FLASH configuration (latency, prefetch, half cycle) functions
+N   are enabled */
+N//#define _FLASH_PROG
+N
+N/************************************* GPIO ***********************************/
+N#define _GPIO
+N#define _GPIOA
+N#define _GPIOB
+N#define _GPIOC
+N#define _GPIOD
+N#define _GPIOE
+N#define _AFIO
+N
+N/************************************* I2C ************************************/
+N#define _I2C
+N#define _I2C1
+N//#define _I2C2
+N
+N/************************************* IWDG ***********************************/
+N//#define _IWDG
+N
+N/************************************* NVIC ***********************************/
+N#define _NVIC
+N
+N/************************************* PWR ************************************/
+N#define _PWR
+N
+N/************************************* RCC ************************************/
+N#define _RCC
+N
+N/************************************* RTC ************************************/
+N#define _RTC
+N
+N/************************************* SPI ************************************/
+N#define _SPI
+N#define _SPI1
+N#define _SPI2
+N
+N/************************************* SysTick ********************************/
+N#define _SysTick
+N
+N/************************************* TIM1 ***********************************/
+N#define _TIM1
+N
+N/************************************* TIM ************************************/
+N#define _TIM
+N#define _TIM2
+N//#define _TIM3
+N#define _TIM4
+N
+N/************************************* USART **********************************/
+N#define _USART
+N#define _USART1
+N#define _USART2
+N#define _USART3
+N
+N/************************************* WWDG ***********************************/
+N//#define _WWDG
+N
+N/* In the following line adjust the value of External High Speed oscillator (HSE)
+N   used in your application */
+N#define HSE_Value    ((u32)8000000) /* Value of the External oscillator in Hz*/
+N
+N/* Exported macro ------------------------------------------------------------*/
+N#undef assert
+N#ifdef  DEBUG
+S/*******************************************************************************
+S* Macro Name     : assert
+S* Description    : The assert macro is used for function's parameters check.
+S*                  It is used only if the library is compiled in DEBUG mode.
+S* Input          : - expr: If expr is false, it calls assert_failed function
+S*                    which reports the name of the source file and the source
+S*                    line number of the call that failed.
+S*                    If expr is true, it returns no value.
+S* Return         : None
+S*******************************************************************************/
+S  #define assert_param(expr) ((expr) ? (void)0 : assert_failed((u8 *)__FILE__, __LINE__))
+S/* Exported functions ------------------------------------------------------- */
+S  void assert_failed(u8* file, u32 line);
+N#else
+N  #define assert_param(expr) ((void)0)
+N#endif /* DEBUG */
+N
+N#endif /* __STM32F10x_CONF_H */
+N
+N/******************* (C) COPYRIGHT 2007 STMicroelectronics *****END OF FILE****/
+L 29 "..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h" 2
+N#include "stm32f10x_type.h"
+N#include "cortexm3_macro.h"
+L 1 "..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h" 1
+N/******************** (C) COPYRIGHT 2008 STMicroelectronics ********************
+N* File Name          : cortexm3_macro.h
+N* Author             : MCD Application Team
+N* Version            : V2.0
+N* Date               : 05/23/2008
+N* Description        : Header file for cortexm3_macro.s.
+N********************************************************************************
+N* THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+N* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+N* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+N* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+N* CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+N* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+N* FOR MORE INFORMATION PLEASE CAREFULLY READ THE LICENSE AGREEMENT FILE LOCATED 
+N* IN THE ROOT DIRECTORY OF THIS FIRMWARE PACKAGE.
+N*******************************************************************************/
+N
+N/* Define to prevent recursive inclusion -------------------------------------*/
+N#ifndef __CORTEXM3_MACRO_H
+N#define __CORTEXM3_MACRO_H
+N
+N/* Includes ------------------------------------------------------------------*/
+N#include "stm32f10x_type.h"
+N
+N/* Exported types ------------------------------------------------------------*/
+N/* Exported constants --------------------------------------------------------*/
+N/* Exported macro ------------------------------------------------------------*/
+N/* Exported functions ------------------------------------------------------- */
+Nvoid __WFI(void);
+Nvoid __WFE(void);
+Nvoid __SEV(void);
+Nvoid __ISB(void);
+Nvoid __DSB(void);
+Nvoid __DMB(void);
+Nvoid __SVC(void);
+Nu32 __MRS_CONTROL(void);
+Nvoid __MSR_CONTROL(u32 Control);
+Nu32 __MRS_PSP(void);
+Nvoid __MSR_PSP(u32 TopOfProcessStack);
+Nu32 __MRS_MSP(void);
+Nvoid __MSR_MSP(u32 TopOfMainStack);
+Nvoid __RESETPRIMASK(void);
+Nvoid __SETPRIMASK(void);
+Nu32 __READ_PRIMASK(void);
+Nvoid __RESETFAULTMASK(void);
+Nvoid __SETFAULTMASK(void);
+Nu32 __READ_FAULTMASK(void);
+Nvoid __BASEPRICONFIG(u32 NewPriority);
+Nu32 __GetBASEPRI(void);
+Nu16 __REV_HalfWord(u16 Data);
+Nu32 __REV_Word(u32 Data);
+N
+N#endif /* __CORTEXM3_MACRO_H */
+N
+N/******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/
+L 31 "..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h" 2
+N
+N/* Exported types ------------------------------------------------------------*/
+N/******************************************************************************/
+N/*                         Peripheral registers structures                    */
+N/******************************************************************************/
+N
+N/*------------------------ Analog to Digital Converter -----------------------*/
+Ntypedef struct
+N{
+N  vu32 SR;
+N  vu32 CR1;
+N  vu32 CR2;
+N  vu32 SMPR1;
+N  vu32 SMPR2;
+N  vu32 JOFR1;
+N  vu32 JOFR2;
+N  vu32 JOFR3;
+N  vu32 JOFR4;
+N  vu32 HTR;
+N  vu32 LTR;
+N  vu32 SQR1;
+N  vu32 SQR2;
+N  vu32 SQR3;
+N  vu32 JSQR;
+N  vu32 JDR1;
+N  vu32 JDR2;
+N  vu32 JDR3;
+N  vu32 JDR4;
+N  vu32 DR;
+N} ADC_TypeDef;
+N
+N/*------------------------ Backup Registers ----------------------------------*/
+Ntypedef struct
+N{
+N  u32  RESERVED0;
+N  vu16 DR1;
+N  u16  RESERVED1;
+N  vu16 DR2;
+N  u16  RESERVED2;
+N  vu16 DR3;
+N  u16  RESERVED3;
+N  vu16 DR4;
+N  u16  RESERVED4;
+N  vu16 DR5;
+N  u16  RESERVED5;
+N  vu16 DR6;
+N  u16  RESERVED6;
+N  vu16 DR7;
+N  u16  RESERVED7;
+N  vu16 DR8;
+N  u16  RESERVED8;
+N  vu16 DR9;
+N  u16  RESERVED9;
+N  vu16 DR10;
+N  u16  RESERVED10; 
+N  vu16 RTCCR;
+N  u16  RESERVED11;
+N  vu16 CR;
+N  u16  RESERVED12;
+N  vu16 CSR;
+N  u16  RESERVED13[5];
+N  vu16 DR11;
+N  u16  RESERVED14;
+N  vu16 DR12;
+N  u16  RESERVED15;
+N  vu16 DR13;
+N  u16  RESERVED16;
+N  vu16 DR14;
+N  u16  RESERVED17;
+N  vu16 DR15;
+N  u16  RESERVED18;
+N  vu16 DR16;
+N  u16  RESERVED19;
+N  vu16 DR17;
+N  u16  RESERVED20;
+N  vu16 DR18;
+N  u16  RESERVED21;
+N  vu16 DR19;
+N  u16  RESERVED22;
+N  vu16 DR20;
+N  u16  RESERVED23;
+N  vu16 DR21;
+N  u16  RESERVED24;
+N  vu16 DR22;
+N  u16  RESERVED25;
+N  vu16 DR23;
+N  u16  RESERVED26;
+N  vu16 DR24;
+N  u16  RESERVED27;
+N  vu16 DR25;
+N  u16  RESERVED28;
+N  vu16 DR26;
+N  u16  RESERVED29;
+N  vu16 DR27;
+N  u16  RESERVED30;
+N  vu16 DR28;
+N  u16  RESERVED31;
+N  vu16 DR29;
+N  u16  RESERVED32;
+N  vu16 DR30;
+N  u16  RESERVED33; 
+N  vu16 DR31;
+N  u16  RESERVED34;
+N  vu16 DR32;
+N  u16  RESERVED35;
+N  vu16 DR33;
+N  u16  RESERVED36;
+N  vu16 DR34;
+N  u16  RESERVED37;
+N  vu16 DR35;
+N  u16  RESERVED38;
+N  vu16 DR36;
+N  u16  RESERVED39;
+N  vu16 DR37;
+N  u16  RESERVED40;
+N  vu16 DR38;
+N  u16  RESERVED41;
+N  vu16 DR39;
+N  u16  RESERVED42;
+N  vu16 DR40;
+N  u16  RESERVED43;
+N  vu16 DR41;
+N  u16  RESERVED44;
+N  vu16 DR42;
+N  u16  RESERVED45;    
+N} BKP_TypeDef;
+N
+N/*------------------------ Controller Area Network ---------------------------*/
+Ntypedef struct
+N{
+N  vu32 TIR;
+N  vu32 TDTR;
+N  vu32 TDLR;
+N  vu32 TDHR;
+N} CAN_TxMailBox_TypeDef;
+N
+Ntypedef struct
+N{
+N  vu32 RIR;
+N  vu32 RDTR;
+N  vu32 RDLR;
+N  vu32 RDHR;
+N} CAN_FIFOMailBox_TypeDef;
+N
+Ntypedef struct
+N{
+N  vu32 FR1;
+N  vu32 FR2;
+N} CAN_FilterRegister_TypeDef;
+N
+Ntypedef struct
+N{
+N  vu32 MCR;
+N  vu32 MSR;
+N  vu32 TSR;
+N  vu32 RF0R;
+N  vu32 RF1R;
+N  vu32 IER;
+N  vu32 ESR;
+N  vu32 BTR;
+N  u32  RESERVED0[88];
+N  CAN_TxMailBox_TypeDef sTxMailBox[3];
+N  CAN_FIFOMailBox_TypeDef sFIFOMailBox[2];
+N  u32  RESERVED1[12];
+N  vu32 FMR;
+N  vu32 FM1R;
+N  u32  RESERVED2;
+N  vu32 FS1R;
+N  u32  RESERVED3;
+N  vu32 FFA1R;
+N  u32  RESERVED4;
+N  vu32 FA1R;
+N  u32  RESERVED5[8];
+N  CAN_FilterRegister_TypeDef sFilterRegister[14];
+N} CAN_TypeDef;
+N
+N/*------------------------ CRC calculation unit ------------------------------*/
+Ntypedef struct
+N{
+N  vu32 DR;
+N  vu8  IDR;
+N  u8   RESERVED0;
+N  u16  RESERVED1;
+N  vu32 CR;
+N} CRC_TypeDef;
+N
+N
+N/*------------------------ Digital to Analog Converter -----------------------*/
+Ntypedef struct
+N{
+N  vu32 CR;
+N  vu32 SWTRIGR;
+N  vu32 DHR12R1;
+N  vu32 DHR12L1;
+N  vu32 DHR8R1;
+N  vu32 DHR12R2;
+N  vu32 DHR12L2;
+N  vu32 DHR8R2;
+N  vu32 DHR12RD;
+N  vu32 DHR12LD;
+N  vu32 DHR8RD;
+N  vu32 DOR1;
+N  vu32 DOR2;
+N} DAC_TypeDef;
+N
+N/*------------------------ Debug MCU -----------------------------------------*/
+Ntypedef struct
+N{
+N  vu32 IDCODE;
+N  vu32 CR;	
+N}DBGMCU_TypeDef;
+N
+N/*------------------------ DMA Controller ------------------------------------*/
+Ntypedef struct
+N{
+N  vu32 CCR;
+N  vu32 CNDTR;
+N  vu32 CPAR;
+N  vu32 CMAR;
+N} DMA_Channel_TypeDef;
+N
+Ntypedef struct
+N{
+N  vu32 ISR;
+N  vu32 IFCR;
+N} DMA_TypeDef;
+N
+N/*------------------------ External Interrupt/Event Controller ---------------*/
+Ntypedef struct
+N{
+N  vu32 IMR;
+N  vu32 EMR;
+N  vu32 RTSR;
+N  vu32 FTSR;
+N  vu32 SWIER;
+N  vu32 PR;
+N} EXTI_TypeDef;
+N
+N/*------------------------ FLASH and Option Bytes Registers ------------------*/
+Ntypedef struct
+N{
+N  vu32 ACR;
+N  vu32 KEYR;
+N  vu32 OPTKEYR;
+N  vu32 SR;
+N  vu32 CR;
+N  vu32 AR;
+N  vu32 RESERVED;
+N  vu32 OBR;
+N  vu32 WRPR;
+N} FLASH_TypeDef;
+N
+Ntypedef struct
+N{
+N  vu16 RDP;
+N  vu16 USER;
+N  vu16 Data0;
+N  vu16 Data1;
+N  vu16 WRP0;
+N  vu16 WRP1;
+N  vu16 WRP2;
+N  vu16 WRP3;
+N} OB_TypeDef;
+N
+N/*------------------------ Flexible Static Memory Controller -----------------*/
+Ntypedef struct
+N{
+N  vu32 BTCR[8];   
+N} FSMC_Bank1_TypeDef; 
+N
+Ntypedef struct
+N{
+N  vu32 BWTR[7];
+N} FSMC_Bank1E_TypeDef;
+N
+Ntypedef struct
+N{
+N  vu32 PCR2;
+N  vu32 SR2;
+N  vu32 PMEM2;
+N  vu32 PATT2;
+N  u32  RESERVED0;   
+N  vu32 ECCR2; 
+N} FSMC_Bank2_TypeDef;  
+N
+Ntypedef struct
+N{
+N  vu32 PCR3;
+N  vu32 SR3;
+N  vu32 PMEM3;
+N  vu32 PATT3;
+N  u32  RESERVED0;   
+N  vu32 ECCR3; 
+N} FSMC_Bank3_TypeDef; 
+N
+Ntypedef struct
+N{
+N  vu32 PCR4;
+N  vu32 SR4;
+N  vu32 PMEM4;
+N  vu32 PATT4;
+N  vu32 PIO4; 
+N} FSMC_Bank4_TypeDef; 
+N
+N/*------------------------ General Purpose and Alternate Function IO ---------*/
+Ntypedef struct
+N{
+N  vu32 CRL;
+N  vu32 CRH;
+N  vu32 IDR;
+N  vu32 ODR;
+N  vu32 BSRR;
+N  vu32 BRR;
+N  vu32 LCKR;
+N} GPIO_TypeDef;
+N
+Ntypedef struct
+N{
+N  vu32 EVCR;
+N  vu32 MAPR;
+N  vu32 EXTICR[4];
+N} AFIO_TypeDef;
+N
+N/*------------------------ Inter-integrated Circuit Interface ----------------*/
+Ntypedef struct
+N{
+N  vu16 CR1;
+N  u16  RESERVED0;
+N  vu16 CR2;
+N  u16  RESERVED1;
+N  vu16 OAR1;
+N  u16  RESERVED2;
+N  vu16 OAR2;
+N  u16  RESERVED3;
+N  vu16 DR;
+N  u16  RESERVED4;
+N  vu16 SR1;
+N  u16  RESERVED5;
+N  vu16 SR2;
+N  u16  RESERVED6;
+N  vu16 CCR;
+N  u16  RESERVED7;
+N  vu16 TRISE;
+N  u16  RESERVED8;
+N} I2C_TypeDef;
+N
+N/*------------------------ Independent WATCHDOG ------------------------------*/
+Ntypedef struct
+N{
+N  vu32 KR;
+N  vu32 PR;
+N  vu32 RLR;
+N  vu32 SR;
+N} IWDG_TypeDef;
+N
+N/*------------------------ Nested Vectored Interrupt Controller --------------*/
+Ntypedef struct
+N{
+N  vu32 ISER[2];
+N  u32  RESERVED0[30];
+N  vu32 ICER[2];
+N  u32  RSERVED1[30];
+N  vu32 ISPR[2];
+N  u32  RESERVED2[30];
+N  vu32 ICPR[2];
+N  u32  RESERVED3[30];
+N  vu32 IABR[2];
+N  u32  RESERVED4[62];
+N  vu32 IPR[15];
+N} NVIC_TypeDef;
+N
+Ntypedef struct
+N{
+N  vuc32 CPUID;
+N  vu32 ICSR;
+N  vu32 VTOR;
+N  vu32 AIRCR;
+N  vu32 SCR;
+N  vu32 CCR;
+N  vu32 SHPR[3];
+N  vu32 SHCSR;
+N  vu32 CFSR;
+N  vu32 HFSR;
+N  vu32 DFSR;
+N  vu32 MMFAR;
+N  vu32 BFAR;
+N  vu32 AFSR;
+N} SCB_TypeDef;
+N
+N/*------------------------ Power Control -------------------------------------*/
+Ntypedef struct
+N{
+N  vu32 CR;
+N  vu32 CSR;
+N} PWR_TypeDef;
+N
+N/*------------------------ Reset and Clock Control ---------------------------*/
+Ntypedef struct
+N{
+N  vu32 CR;
+N  vu32 CFGR;
+N  vu32 CIR;
+N  vu32 APB2RSTR;
+N  vu32 APB1RSTR;
+N  vu32 AHBENR;
+N  vu32 APB2ENR;
+N  vu32 APB1ENR;
+N  vu32 BDCR;
+N  vu32 CSR;
+N} RCC_TypeDef;
+N
+N/*------------------------ Real-Time Clock -----------------------------------*/
+Ntypedef struct
+N{
+N  vu16 CRH;
+N  u16  RESERVED0;
+N  vu16 CRL;
+N  u16  RESERVED1;
+N  vu16 PRLH;
+N  u16  RESERVED2;
+N  vu16 PRLL;
+N  u16  RESERVED3;
+N  vu16 DIVH;
+N  u16  RESERVED4;
+N  vu16 DIVL;
+N  u16  RESERVED5;
+N  vu16 CNTH;
+N  u16  RESERVED6;
+N  vu16 CNTL;
+N  u16  RESERVED7;
+N  vu16 ALRH;
+N  u16  RESERVED8;
+N  vu16 ALRL;
+N  u16  RESERVED9;
+N} RTC_TypeDef;
+N
+N/*------------------------ SD host Interface ---------------------------------*/
+Ntypedef struct
+N{
+N  vu32 POWER;
+N  vu32 CLKCR;
+N  vu32 ARG;
+N  vu32 CMD;
+N  vuc32 RESPCMD;
+N  vuc32 RESP1;
+N  vuc32 RESP2;
+N  vuc32 RESP3;
+N  vuc32 RESP4;
+N  vu32 DTIMER;
+N  vu32 DLEN;
+N  vu32 DCTRL;
+N  vuc32 DCOUNT;
+N  vuc32 STA;
+N  vu32 ICR;
+N  vu32 MASK;
+N  u32  RESERVED0[2];
+N  vuc32 FIFOCNT;
+N  u32  RESERVED1[13];
+N  vu32 FIFO;
+N} SDIO_TypeDef;
+N
+N/*------------------------ Serial Peripheral Interface -----------------------*/
+Ntypedef struct
+N{
+N  vu16 CR1;
+N  u16  RESERVED0;
+N  vu16 CR2;
+N  u16  RESERVED1;
+N  vu16 SR;
+N  u16  RESERVED2;
+N  vu16 DR;
+N  u16  RESERVED3;
+N  vu16 CRCPR;
+N  u16  RESERVED4;
+N  vu16 RXCRCR;
+N  u16  RESERVED5;
+N  vu16 TXCRCR;
+N  u16  RESERVED6;
+N  vu16 I2SCFGR;
+N  u16  RESERVED7;
+N  vu16 I2SPR;
+N  u16  RESERVED8;  
+N} SPI_TypeDef;
+N
+N/*------------------------ SystemTick ----------------------------------------*/
+Ntypedef struct
+N{
+N  vu32 CTRL;
+N  vu32 LOAD;
+N  vu32 VAL;
+N  vuc32 CALIB;
+N} SysTick_TypeDef;
+N
+N/*------------------------ TIM -----------------------------------------------*/
+Ntypedef struct
+N{
+N  vu16 CR1;
+N  u16  RESERVED0;
+N  vu16 CR2;
+N  u16  RESERVED1;
+N  vu16 SMCR;
+N  u16  RESERVED2;
+N  vu16 DIER;
+N  u16  RESERVED3;
+N  vu16 SR;
+N  u16  RESERVED4;
+N  vu16 EGR;
+N  u16  RESERVED5;
+N  vu16 CCMR1;
+N  u16  RESERVED6;
+N  vu16 CCMR2;
+N  u16  RESERVED7;
+N  vu16 CCER;
+N  u16  RESERVED8;
+N  vu16 CNT;
+N  u16  RESERVED9;
+N  vu16 PSC;
+N  u16  RESERVED10;
+N  vu16 ARR;
+N  u16  RESERVED11;
+N  vu16 RCR;
+N  u16  RESERVED12;
+N  vu16 CCR1;
+N  u16  RESERVED13;
+N  vu16 CCR2;
+N  u16  RESERVED14;
+N  vu16 CCR3;
+N  u16  RESERVED15;
+N  vu16 CCR4;
+N  u16  RESERVED16;
+N  vu16 BDTR;
+N  u16  RESERVED17;
+N  vu16 DCR;
+N  u16  RESERVED18;
+N  vu16 DMAR;
+N  u16  RESERVED19;
+N} TIM_TypeDef;
+N
+N/*----------------- Universal Synchronous Asynchronous Receiver Transmitter --*/
+Ntypedef struct
+N{
+N  vu16 SR;
+N  u16  RESERVED0;
+N  vu16 DR;
+N  u16  RESERVED1;
+N  vu16 BRR;
+N  u16  RESERVED2;
+N  vu16 CR1;
+N  u16  RESERVED3;
+N  vu16 CR2;
+N  u16  RESERVED4;
+N  vu16 CR3;
+N  u16  RESERVED5;
+N  vu16 GTPR;
+N  u16  RESERVED6;
+N} USART_TypeDef;
+N
+N/*------------------------ Window WATCHDOG -----------------------------------*/
+Ntypedef struct
+N{
+N  vu32 CR;
+N  vu32 CFR;
+N  vu32 SR;
+N} WWDG_TypeDef;
+N
+N/******************************************************************************/
+N/*                         Peripheral memory map                              */
+N/******************************************************************************/
+N/* Peripheral and SRAM base address in the alias region */
+N#define PERIPH_BB_BASE        ((u32)0x42000000)
+N#define SRAM_BB_BASE          ((u32)0x22000000)
+N
+N/* Peripheral and SRAM base address in the bit-band region */
+N#define SRAM_BASE             ((u32)0x20000000)
+N#define PERIPH_BASE           ((u32)0x40000000)
+N
+N/* FSMC registers base address */
+N#define FSMC_R_BASE           ((u32)0xA0000000)
+N
+N/* Peripheral memory map */
+N#define APB1PERIPH_BASE       PERIPH_BASE
+N#define APB2PERIPH_BASE       (PERIPH_BASE + 0x10000)
+N#define AHBPERIPH_BASE        (PERIPH_BASE + 0x20000)
+N
+N#define TIM2_BASE             (APB1PERIPH_BASE + 0x0000)
+N#define TIM3_BASE             (APB1PERIPH_BASE + 0x0400)
+N#define TIM4_BASE             (APB1PERIPH_BASE + 0x0800)
+N#define TIM5_BASE             (APB1PERIPH_BASE + 0x0C00)
+N#define TIM6_BASE             (APB1PERIPH_BASE + 0x1000)
+N#define TIM7_BASE             (APB1PERIPH_BASE + 0x1400)
+N#define RTC_BASE              (APB1PERIPH_BASE + 0x2800)
+N#define WWDG_BASE             (APB1PERIPH_BASE + 0x2C00)
+N#define IWDG_BASE             (APB1PERIPH_BASE + 0x3000)
+N#define SPI2_BASE             (APB1PERIPH_BASE + 0x3800)
+N#define SPI3_BASE             (APB1PERIPH_BASE + 0x3C00)
+N#define USART2_BASE           (APB1PERIPH_BASE + 0x4400)
+N#define USART3_BASE           (APB1PERIPH_BASE + 0x4800)
+N#define UART4_BASE            (APB1PERIPH_BASE + 0x4C00)
+N#define UART5_BASE            (APB1PERIPH_BASE + 0x5000)
+N#define I2C1_BASE             (APB1PERIPH_BASE + 0x5400)
+N#define I2C2_BASE             (APB1PERIPH_BASE + 0x5800)
+N#define CAN_BASE              (APB1PERIPH_BASE + 0x6400)
+N#define BKP_BASE              (APB1PERIPH_BASE + 0x6C00)
+N#define PWR_BASE              (APB1PERIPH_BASE + 0x7000)
+N#define DAC_BASE              (APB1PERIPH_BASE + 0x7400)
+N
+N#define AFIO_BASE             (APB2PERIPH_BASE + 0x0000)
+N#define EXTI_BASE             (APB2PERIPH_BASE + 0x0400)
+N#define GPIOA_BASE            (APB2PERIPH_BASE + 0x0800)
+N#define GPIOB_BASE            (APB2PERIPH_BASE + 0x0C00)
+N#define GPIOC_BASE            (APB2PERIPH_BASE + 0x1000)
+N#define GPIOD_BASE            (APB2PERIPH_BASE + 0x1400)
+N#define GPIOE_BASE            (APB2PERIPH_BASE + 0x1800)
+N#define GPIOF_BASE            (APB2PERIPH_BASE + 0x1C00)
+N#define GPIOG_BASE            (APB2PERIPH_BASE + 0x2000)
+N#define ADC1_BASE             (APB2PERIPH_BASE + 0x2400)
+N#define ADC2_BASE             (APB2PERIPH_BASE + 0x2800)
+N#define TIM1_BASE             (APB2PERIPH_BASE + 0x2C00)
+N#define SPI1_BASE             (APB2PERIPH_BASE + 0x3000)
+N#define TIM8_BASE             (APB2PERIPH_BASE + 0x3400)
+N#define USART1_BASE           (APB2PERIPH_BASE + 0x3800)
+N#define ADC3_BASE             (APB2PERIPH_BASE + 0x3C00)
+N
+N#define SDIO_BASE             (PERIPH_BASE + 0x18000)
+N
+N#define DMA1_BASE             (AHBPERIPH_BASE + 0x0000)
+N#define DMA1_Channel1_BASE    (AHBPERIPH_BASE + 0x0008)
+N#define DMA1_Channel2_BASE    (AHBPERIPH_BASE + 0x001C)
+N#define DMA1_Channel3_BASE    (AHBPERIPH_BASE + 0x0030)
+N#define DMA1_Channel4_BASE    (AHBPERIPH_BASE + 0x0044)
+N#define DMA1_Channel5_BASE    (AHBPERIPH_BASE + 0x0058)
+N#define DMA1_Channel6_BASE    (AHBPERIPH_BASE + 0x006C)
+N#define DMA1_Channel7_BASE    (AHBPERIPH_BASE + 0x0080)
+N#define DMA2_BASE             (AHBPERIPH_BASE + 0x0400)
+N#define DMA2_Channel1_BASE    (AHBPERIPH_BASE + 0x0408)
+N#define DMA2_Channel2_BASE    (AHBPERIPH_BASE + 0x041C)
+N#define DMA2_Channel3_BASE    (AHBPERIPH_BASE + 0x0430)
+N#define DMA2_Channel4_BASE    (AHBPERIPH_BASE + 0x0444)
+N#define DMA2_Channel5_BASE    (AHBPERIPH_BASE + 0x0458)
+N#define RCC_BASE              (AHBPERIPH_BASE + 0x1000)
+N#define CRC_BASE              (AHBPERIPH_BASE + 0x3000)
+N
+N/* Flash registers base address */
+N#define FLASH_R_BASE          (AHBPERIPH_BASE + 0x2000)
+N/* Flash Option Bytes base address */
+N#define OB_BASE               ((u32)0x1FFFF800)
+N
+N/* FSMC Bankx registers base address */
+N#define FSMC_Bank1_R_BASE     (FSMC_R_BASE + 0x0000)
+N#define FSMC_Bank1E_R_BASE    (FSMC_R_BASE + 0x0104)
+N#define FSMC_Bank2_R_BASE     (FSMC_R_BASE + 0x0060)
+N#define FSMC_Bank3_R_BASE     (FSMC_R_BASE + 0x0080)
+N#define FSMC_Bank4_R_BASE     (FSMC_R_BASE + 0x00A0)
+N
+N/* Debug MCU registers base address */
+N#define DBGMCU_BASE          ((u32)0xE0042000)
+N
+N/* System Control Space memory map */
+N#define SCS_BASE              ((u32)0xE000E000)
+N
+N#define SysTick_BASE          (SCS_BASE + 0x0010)
+N#define NVIC_BASE             (SCS_BASE + 0x0100)
+N#define SCB_BASE              (SCS_BASE + 0x0D00)
+N
+N/******************************************************************************/
+N/*                         Peripheral declaration                             */
+N/******************************************************************************/
+N
+N/*------------------------ Non Debug Mode ------------------------------------*/
+N#ifndef DEBUG
+N#ifdef _TIM2
+N  #define TIM2                ((TIM_TypeDef *) TIM2_BASE)
+N#endif /*_TIM2 */
+N
+N#ifdef _TIM3
+S  #define TIM3                ((TIM_TypeDef *) TIM3_BASE)
+N#endif /*_TIM3 */
+N
+N#ifdef _TIM4
+N  #define TIM4                ((TIM_TypeDef *) TIM4_BASE)
+N#endif /*_TIM4 */
+N
+N#ifdef _TIM5
+S  #define TIM5                ((TIM_TypeDef *) TIM5_BASE)
+N#endif /*_TIM5 */
+N
+N#ifdef _TIM6
+S  #define TIM6                ((TIM_TypeDef *) TIM6_BASE)
+N#endif /*_TIM6 */
+N
+N#ifdef _TIM7
+S  #define TIM7                ((TIM_TypeDef *) TIM7_BASE)
+N#endif /*_TIM7 */
+N
+N#ifdef _RTC
+N  #define RTC                 ((RTC_TypeDef *) RTC_BASE)
+N#endif /*_RTC */
+N
+N#ifdef _WWDG
+S  #define WWDG                ((WWDG_TypeDef *) WWDG_BASE)
+N#endif /*_WWDG */
+N
+N#ifdef _IWDG
+S  #define IWDG                ((IWDG_TypeDef *) IWDG_BASE)
+N#endif /*_IWDG */
+N
+N#ifdef _SPI2
+N  #define SPI2                ((SPI_TypeDef *) SPI2_BASE)
+N#endif /*_SPI2 */
+N
+N#ifdef _SPI3
+S  #define SPI3                ((SPI_TypeDef *) SPI3_BASE)
+N#endif /*_SPI3 */
+N
+N#ifdef _USART2
+N  #define USART2              ((USART_TypeDef *) USART2_BASE)
+N#endif /*_USART2 */
+N
+N#ifdef _USART3
+N  #define USART3              ((USART_TypeDef *) USART3_BASE)
+N#endif /*_USART3 */
+N
+N#ifdef _UART4
+S  #define UART4              ((USART_TypeDef *) UART4_BASE)
+N#endif /*_UART4 */
+N
+N#ifdef _UART5
+S  #define UART5              ((USART_TypeDef *) UART5_BASE)
+N#endif /*_USART5 */
+N
+N#ifdef _I2C1
+N  #define I2C1                ((I2C_TypeDef *) I2C1_BASE)
+N#endif /*_I2C1 */
+N
+N#ifdef _I2C2
+S  #define I2C2                ((I2C_TypeDef *) I2C2_BASE)
+N#endif /*_I2C2 */
+N
+N#ifdef _CAN
+S  #define CAN                 ((CAN_TypeDef *) CAN_BASE)
+N#endif /*_CAN */
+N
+N#ifdef _BKP
+N  #define BKP                 ((BKP_TypeDef *) BKP_BASE)
+N#endif /*_BKP */
+N
+N#ifdef _PWR
+N  #define PWR                 ((PWR_TypeDef *) PWR_BASE)
+N#endif /*_PWR */
+N
+N#ifdef _DAC
+S  #define DAC                 ((DAC_TypeDef *) DAC_BASE)
+N#endif /*_DAC */
+N
+N#ifdef _AFIO
+N  #define AFIO                ((AFIO_TypeDef *) AFIO_BASE)
+N#endif /*_AFIO */
+N
+N#ifdef _EXTI
+N  #define EXTI                ((EXTI_TypeDef *) EXTI_BASE)
+N#endif /*_EXTI */
+N
+N#ifdef _GPIOA
+N  #define GPIOA               ((GPIO_TypeDef *) GPIOA_BASE)
+N#endif /*_GPIOA */
+N
+N#ifdef _GPIOB
+N  #define GPIOB               ((GPIO_TypeDef *) GPIOB_BASE)
+N#endif /*_GPIOB */
+N
+N#ifdef _GPIOC
+N  #define GPIOC               ((GPIO_TypeDef *) GPIOC_BASE)
+N#endif /*_GPIOC */
+N
+N#ifdef _GPIOD
+N  #define GPIOD               ((GPIO_TypeDef *) GPIOD_BASE)
+N#endif /*_GPIOD */
+N
+N#ifdef _GPIOE
+N  #define GPIOE               ((GPIO_TypeDef *) GPIOE_BASE)
+N#endif /*_GPIOE */
+N
+N#ifdef _GPIOF
+S  #define GPIOF               ((GPIO_TypeDef *) GPIOF_BASE)
+N#endif /*_GPIOF */
+N
+N#ifdef _GPIOG
+S  #define GPIOG               ((GPIO_TypeDef *) GPIOG_BASE)
+N#endif /*_GPIOG */
+N
+N#ifdef _ADC1
+N  #define ADC1                ((ADC_TypeDef *) ADC1_BASE)
+N#endif /*_ADC1 */
+N
+N#ifdef _ADC2
+N  #define ADC2                ((ADC_TypeDef *) ADC2_BASE)
+N#endif /*_ADC2 */
+N
+N#ifdef _TIM1
+N  #define TIM1                ((TIM_TypeDef *) TIM1_BASE)
+N#endif /*_TIM1 */
+N
+N#ifdef _SPI1
+N  #define SPI1                ((SPI_TypeDef *) SPI1_BASE)
+N#endif /*_SPI1 */
+N
+N#ifdef _TIM8
+S  #define TIM8                ((TIM_TypeDef *) TIM8_BASE)
+N#endif /*_TIM8 */
+N
+N#ifdef _USART1
+N  #define USART1              ((USART_TypeDef *) USART1_BASE)
+N#endif /*_USART1 */
+N
+N#ifdef _ADC3
+S  #define ADC3                ((ADC_TypeDef *) ADC3_BASE)
+N#endif /*_ADC3 */
+N
+N#ifdef _SDIO
+S  #define SDIO                ((SDIO_TypeDef *) SDIO_BASE)
+N#endif /*_SDIO */
+N
+N#ifdef _DMA
+S  #define DMA1                ((DMA_TypeDef *) DMA1_BASE)
+S  #define DMA2                ((DMA_TypeDef *) DMA2_BASE)
+N#endif /*_DMA */
+N
+N#ifdef _DMA1_Channel1
+S  #define DMA1_Channel1       ((DMA_Channel_TypeDef *) DMA1_Channel1_BASE)
+N#endif /*_DMA1_Channel1 */
+N
+N#ifdef _DMA1_Channel2
+S  #define DMA1_Channel2       ((DMA_Channel_TypeDef *) DMA1_Channel2_BASE)
+N#endif /*_DMA1_Channel2 */
+N
+N#ifdef _DMA1_Channel3
+S  #define DMA1_Channel3       ((DMA_Channel_TypeDef *) DMA1_Channel3_BASE)
+N#endif /*_DMA1_Channel3 */
+N
+N#ifdef _DMA1_Channel4
+S  #define DMA1_Channel4       ((DMA_Channel_TypeDef *) DMA1_Channel4_BASE)
+N#endif /*_DMA1_Channel4 */
+N
+N#ifdef _DMA1_Channel5
+S  #define DMA1_Channel5       ((DMA_Channel_TypeDef *) DMA1_Channel5_BASE)
+N#endif /*_DMA1_Channel5 */
+N
+N#ifdef _DMA1_Channel6
+S  #define DMA1_Channel6       ((DMA_Channel_TypeDef *) DMA1_Channel6_BASE)
+N#endif /*_DMA1_Channel6 */
+N
+N#ifdef _DMA1_Channel7
+S  #define DMA1_Channel7       ((DMA_Channel_TypeDef *) DMA1_Channel7_BASE)
+N#endif /*_DMA1_Channel7 */
+N
+N#ifdef _DMA2_Channel1
+S  #define DMA2_Channel1       ((DMA_Channel_TypeDef *) DMA2_Channel1_BASE)
+N#endif /*_DMA2_Channel1 */
+N
+N#ifdef _DMA2_Channel2
+S  #define DMA2_Channel2       ((DMA_Channel_TypeDef *) DMA2_Channel2_BASE)
+N#endif /*_DMA2_Channel2 */
+N
+N#ifdef _DMA2_Channel3
+S  #define DMA2_Channel3       ((DMA_Channel_TypeDef *) DMA2_Channel3_BASE)
+N#endif /*_DMA2_Channel3 */
+N
+N#ifdef _DMA2_Channel4
+S  #define DMA2_Channel4       ((DMA_Channel_TypeDef *) DMA2_Channel4_BASE)
+N#endif /*_DMA2_Channel4 */
+N
+N#ifdef _DMA2_Channel5
+S  #define DMA2_Channel5       ((DMA_Channel_TypeDef *) DMA2_Channel5_BASE)
+N#endif /*_DMA2_Channel5 */
+N
+N#ifdef _RCC
+N  #define RCC                 ((RCC_TypeDef *) RCC_BASE)
+N#endif /*_RCC */
+N
+N#ifdef _CRC
+S  #define CRC                 ((CRC_TypeDef *) CRC_BASE)
+N#endif /*_CRC */
+N
+N#ifdef _FLASH
+N  #define FLASH               ((FLASH_TypeDef *) FLASH_R_BASE)
+N  #define OB                  ((OB_TypeDef *) OB_BASE) 
+N#endif /*_FLASH */
+N
+N#ifdef _FSMC
+S  #define FSMC_Bank1          ((FSMC_Bank1_TypeDef *) FSMC_Bank1_R_BASE)
+S  #define FSMC_Bank1E         ((FSMC_Bank1E_TypeDef *) FSMC_Bank1E_R_BASE)
+S  #define FSMC_Bank2          ((FSMC_Bank2_TypeDef *) FSMC_Bank2_R_BASE)
+S  #define FSMC_Bank3          ((FSMC_Bank3_TypeDef *) FSMC_Bank3_R_BASE)
+S  #define FSMC_Bank4          ((FSMC_Bank4_TypeDef *) FSMC_Bank4_R_BASE)
+N#endif /*_FSMC */
+N
+N#ifdef _DBGMCU
+S  #define DBGMCU              ((DBGMCU_TypeDef *) DBGMCU_BASE)
+N#endif /*_DBGMCU */
+N
+N#ifdef _SysTick
+N  #define SysTick             ((SysTick_TypeDef *) SysTick_BASE)
+N#endif /*_SysTick */
+N
+N#ifdef _NVIC
+N  #define NVIC                ((NVIC_TypeDef *) NVIC_BASE)
+N  #define SCB                 ((SCB_TypeDef *) SCB_BASE)  
+N#endif /*_NVIC */
+N
+N/*------------------------ Debug Mode ----------------------------------------*/
+N#else   /* DEBUG */
+S#ifdef _TIM2
+S  EXT TIM_TypeDef             *TIM2;
+S#endif /*_TIM2 */
+S
+S#ifdef _TIM3
+S  EXT TIM_TypeDef             *TIM3;
+S#endif /*_TIM3 */
+S
+S#ifdef _TIM4
+S  EXT TIM_TypeDef             *TIM4;
+S#endif /*_TIM4 */
+S
+S#ifdef _TIM5
+S  EXT TIM_TypeDef             *TIM5;
+S#endif /*_TIM5 */
+S
+S#ifdef _TIM6
+S  EXT TIM_TypeDef             *TIM6;
+S#endif /*_TIM6 */
+S
+S#ifdef _TIM7
+S  EXT TIM_TypeDef             *TIM7;
+S#endif /*_TIM7 */
+S
+S#ifdef _RTC
+S  EXT RTC_TypeDef             *RTC;
+S#endif /*_RTC */
+S
+S#ifdef _WWDG
+S  EXT WWDG_TypeDef            *WWDG;
+S#endif /*_WWDG */
+S
+S#ifdef _IWDG
+S  EXT IWDG_TypeDef            *IWDG;
+S#endif /*_IWDG */
+S
+S#ifdef _SPI2
+S  EXT SPI_TypeDef             *SPI2;
+S#endif /*_SPI2 */
+S
+S#ifdef _SPI3
+S  EXT SPI_TypeDef             *SPI3;
+S#endif /*_SPI3 */
+S
+S#ifdef _USART2
+S  EXT USART_TypeDef           *USART2;
+S#endif /*_USART2 */
+S
+S#ifdef _USART3
+S  EXT USART_TypeDef           *USART3;
+S#endif /*_USART3 */
+S
+S#ifdef _UART4
+S  EXT USART_TypeDef           *UART4;
+S#endif /*_UART4 */
+S
+S#ifdef _UART5
+S  EXT USART_TypeDef           *UART5;
+S#endif /*_UART5 */
+S
+S#ifdef _I2C1
+S  EXT I2C_TypeDef             *I2C1;
+S#endif /*_I2C1 */
+S
+S#ifdef _I2C2
+S  EXT I2C_TypeDef             *I2C2;
+S#endif /*_I2C2 */
+S
+S#ifdef _CAN
+S  EXT CAN_TypeDef             *CAN;
+S#endif /*_CAN */
+S
+S#ifdef _BKP
+S  EXT BKP_TypeDef             *BKP;
+S#endif /*_BKP */
+S
+S#ifdef _PWR
+S  EXT PWR_TypeDef             *PWR;
+S#endif /*_PWR */
+S
+S#ifdef _DAC
+S  EXT DAC_TypeDef             *DAC;
+S#endif /*_DAC */
+S
+S#ifdef _AFIO
+S  EXT AFIO_TypeDef            *AFIO;
+S#endif /*_AFIO */
+S
+S#ifdef _EXTI
+S  EXT EXTI_TypeDef            *EXTI;
+S#endif /*_EXTI */
+S
+S#ifdef _GPIOA
+S  EXT GPIO_TypeDef            *GPIOA;
+S#endif /*_GPIOA */
+S
+S#ifdef _GPIOB
+S  EXT GPIO_TypeDef            *GPIOB;
+S#endif /*_GPIOB */
+S
+S#ifdef _GPIOC
+S  EXT GPIO_TypeDef            *GPIOC;
+S#endif /*_GPIOC */
+S
+S#ifdef _GPIOD
+S  EXT GPIO_TypeDef            *GPIOD;
+S#endif /*_GPIOD */
+S
+S#ifdef _GPIOE
+S  EXT GPIO_TypeDef            *GPIOE;
+S#endif /*_GPIOE */
+S
+S#ifdef _GPIOF
+S  EXT GPIO_TypeDef            *GPIOF;
+S#endif /*_GPIOF */
+S
+S#ifdef _GPIOG
+S  EXT GPIO_TypeDef            *GPIOG;
+S#endif /*_GPIOG */
+S
+S#ifdef _ADC1
+S  EXT ADC_TypeDef             *ADC1;
+S#endif /*_ADC1 */
+S
+S#ifdef _ADC2
+S  EXT ADC_TypeDef             *ADC2;
+S#endif /*_ADC2 */
+S
+S#ifdef _TIM1
+S  EXT TIM_TypeDef             *TIM1;
+S#endif /*_TIM1 */
+S
+S#ifdef _SPI1
+S  EXT SPI_TypeDef             *SPI1;
+S#endif /*_SPI1 */
+S
+S#ifdef _TIM8
+S  EXT TIM_TypeDef             *TIM8;
+S#endif /*_TIM8 */
+S
+S#ifdef _USART1
+S  EXT USART_TypeDef           *USART1;
+S#endif /*_USART1 */
+S
+S#ifdef _ADC3
+S  EXT ADC_TypeDef             *ADC3;
+S#endif /*_ADC3 */
+S
+S#ifdef _SDIO
+S  EXT SDIO_TypeDef            *SDIO;
+S#endif /*_SDIO */
+S
+S#ifdef _DMA
+S  EXT DMA_TypeDef             *DMA1;
+S  EXT DMA_TypeDef             *DMA2;
+S#endif /*_DMA */
+S
+S#ifdef _DMA1_Channel1
+S  EXT DMA_Channel_TypeDef     *DMA1_Channel1;
+S#endif /*_DMA1_Channel1 */
+S
+S#ifdef _DMA1_Channel2
+S  EXT DMA_Channel_TypeDef     *DMA1_Channel2;
+S#endif /*_DMA1_Channel2 */
+S
+S#ifdef _DMA1_Channel3
+S  EXT DMA_Channel_TypeDef     *DMA1_Channel3;
+S#endif /*_DMA1_Channel3 */
+S
+S#ifdef _DMA1_Channel4
+S  EXT DMA_Channel_TypeDef     *DMA1_Channel4;
+S#endif /*_DMA1_Channel4 */
+S
+S#ifdef _DMA1_Channel5
+S  EXT DMA_Channel_TypeDef     *DMA1_Channel5;
+S#endif /*_DMA1_Channel5 */
+S
+S#ifdef _DMA1_Channel6
+S  EXT DMA_Channel_TypeDef     *DMA1_Channel6;
+S#endif /*_DMA1_Channel6 */
+S
+S#ifdef _DMA1_Channel7
+S  EXT DMA_Channel_TypeDef     *DMA1_Channel7;
+S#endif /*_DMA1_Channel7 */
+S
+S#ifdef _DMA2_Channel1
+S  EXT DMA_Channel_TypeDef     *DMA2_Channel1;
+S#endif /*_DMA2_Channel1 */
+S
+S#ifdef _DMA2_Channel2
+S  EXT DMA_Channel_TypeDef     *DMA2_Channel2;
+S#endif /*_DMA2_Channel2 */
+S
+S#ifdef _DMA2_Channel3
+S  EXT DMA_Channel_TypeDef     *DMA2_Channel3;
+S#endif /*_DMA2_Channel3 */
+S
+S#ifdef _DMA2_Channel4
+S  EXT DMA_Channel_TypeDef     *DMA2_Channel4;
+S#endif /*_DMA2_Channel4 */
+S
+S#ifdef _DMA2_Channel5
+S  EXT DMA_Channel_TypeDef     *DMA2_Channel5;
+S#endif /*_DMA2_Channel5 */
+S
+S#ifdef _RCC
+S  EXT RCC_TypeDef             *RCC;
+S#endif /*_RCC */
+S
+S#ifdef _CRC
+S  EXT CRC_TypeDef             *CRC;
+S#endif /*_CRC */
+S
+S#ifdef _FLASH
+S  EXT FLASH_TypeDef            *FLASH;
+S  EXT OB_TypeDef               *OB;  
+S#endif /*_FLASH */
+S
+S#ifdef _FSMC
+S  EXT FSMC_Bank1_TypeDef      *FSMC_Bank1;
+S  EXT FSMC_Bank1E_TypeDef     *FSMC_Bank1E;
+S  EXT FSMC_Bank2_TypeDef      *FSMC_Bank2;
+S  EXT FSMC_Bank3_TypeDef      *FSMC_Bank3;
+S  EXT FSMC_Bank4_TypeDef      *FSMC_Bank4;
+S#endif /*_FSMC */
+S
+S#ifdef _DBGMCU
+S  EXT DBGMCU_TypeDef          *DBGMCU;
+S#endif /*_DBGMCU */
+S
+S#ifdef _SysTick
+S  EXT SysTick_TypeDef         *SysTick;
+S#endif /*_SysTick */
+S
+S#ifdef _NVIC
+S  EXT NVIC_TypeDef            *NVIC;
+S  EXT SCB_TypeDef             *SCB;
+S#endif /*_NVIC */
+S
+N#endif  /* DEBUG */
+N
+N/* Exported constants --------------------------------------------------------*/
+N/* Exported macro ------------------------------------------------------------*/
+N/* Exported functions ------------------------------------------------------- */
+N
+N#endif /* __STM32F10x_MAP_H */
+N
+N/******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/
+L 25 "..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h" 2
+N
+N/* Exported types ------------------------------------------------------------*/
+N/* SPI Init structure definition */
+Ntypedef struct
+N{
+N  u16 SPI_Direction;
+N  u16 SPI_Mode;
+N  u16 SPI_DataSize;
+N  u16 SPI_CPOL;
+N  u16 SPI_CPHA;
+N  u16 SPI_NSS;
+N  u16 SPI_BaudRatePrescaler;
+N  u16 SPI_FirstBit;
+N  u16 SPI_CRCPolynomial;
+N}SPI_InitTypeDef;
+N
+N/* I2S Init structure definition */
+Ntypedef struct
+N{
+N  u16 I2S_Mode;
+N  u16 I2S_Standard;
+N  u16 I2S_DataFormat;
+N  u16 I2S_MCLKOutput;
+N  u16 I2S_AudioFreq;
+N  u16 I2S_CPOL;
+N}I2S_InitTypeDef;
+N
+N/* Exported constants --------------------------------------------------------*/
+N
+N#define IS_SPI_ALL_PERIPH(PERIPH) (((*(u32*)&(PERIPH)) == SPI1_BASE) || \
+N                                   ((*(u32*)&(PERIPH)) == SPI2_BASE) || \
+N                                   ((*(u32*)&(PERIPH)) == SPI3_BASE))
+X#define IS_SPI_ALL_PERIPH(PERIPH) (((*(u32*)&(PERIPH)) == SPI1_BASE) ||                                    ((*(u32*)&(PERIPH)) == SPI2_BASE) ||                                    ((*(u32*)&(PERIPH)) == SPI3_BASE))
+N
+N#define IS_SPI_23_PERIPH(PERIPH) (((*(u32*)&(PERIPH)) == SPI2_BASE) || \
+N                                  ((*(u32*)&(PERIPH)) == SPI3_BASE))
+X#define IS_SPI_23_PERIPH(PERIPH) (((*(u32*)&(PERIPH)) == SPI2_BASE) ||                                   ((*(u32*)&(PERIPH)) == SPI3_BASE))
+N
+N/* SPI data direction mode */
+N#define SPI_Direction_2Lines_FullDuplex ((u16)0x0000)
+N#define SPI_Direction_2Lines_RxOnly     ((u16)0x0400)
+N#define SPI_Direction_1Line_Rx          ((u16)0x8000)
+N#define SPI_Direction_1Line_Tx          ((u16)0xC000)
+N
+N#define IS_SPI_DIRECTION_MODE(MODE) (((MODE) == SPI_Direction_2Lines_FullDuplex) || \
+N                                     ((MODE) == SPI_Direction_2Lines_RxOnly) || \
+N                                     ((MODE) == SPI_Direction_1Line_Rx) || \
+N                                     ((MODE) == SPI_Direction_1Line_Tx))
+X#define IS_SPI_DIRECTION_MODE(MODE) (((MODE) == SPI_Direction_2Lines_FullDuplex) ||                                      ((MODE) == SPI_Direction_2Lines_RxOnly) ||                                      ((MODE) == SPI_Direction_1Line_Rx) ||                                      ((MODE) == SPI_Direction_1Line_Tx))
+N
+N/* SPI master/slave mode */
+N#define SPI_Mode_Master                 ((u16)0x0104)
+N#define SPI_Mode_Slave                  ((u16)0x0000)
+N
+N#define IS_SPI_MODE(MODE) (((MODE) == SPI_Mode_Master) || \
+N                           ((MODE) == SPI_Mode_Slave))
+X#define IS_SPI_MODE(MODE) (((MODE) == SPI_Mode_Master) ||                            ((MODE) == SPI_Mode_Slave))
+N
+N/* SPI data size */
+N#define SPI_DataSize_16b                ((u16)0x0800)
+N#define SPI_DataSize_8b                 ((u16)0x0000)
+N
+N#define IS_SPI_DATASIZE(DATASIZE) (((DATASIZE) == SPI_DataSize_16b) || \
+N                                   ((DATASIZE) == SPI_DataSize_8b))
+X#define IS_SPI_DATASIZE(DATASIZE) (((DATASIZE) == SPI_DataSize_16b) ||                                    ((DATASIZE) == SPI_DataSize_8b))
+N
+N/* SPI Clock Polarity */
+N#define SPI_CPOL_Low                    ((u16)0x0000)
+N#define SPI_CPOL_High                   ((u16)0x0002)
+N
+N#define IS_SPI_CPOL(CPOL) (((CPOL) == SPI_CPOL_Low) || \
+N                           ((CPOL) == SPI_CPOL_High))
+X#define IS_SPI_CPOL(CPOL) (((CPOL) == SPI_CPOL_Low) ||                            ((CPOL) == SPI_CPOL_High))
+N
+N/* SPI Clock Phase */
+N#define SPI_CPHA_1Edge                  ((u16)0x0000)
+N#define SPI_CPHA_2Edge                  ((u16)0x0001)
+N
+N#define IS_SPI_CPHA(CPHA) (((CPHA) == SPI_CPHA_1Edge) || \
+N                           ((CPHA) == SPI_CPHA_2Edge))
+X#define IS_SPI_CPHA(CPHA) (((CPHA) == SPI_CPHA_1Edge) ||                            ((CPHA) == SPI_CPHA_2Edge))
+N
+N/* SPI Slave Select management */
+N#define SPI_NSS_Soft                    ((u16)0x0200)
+N#define SPI_NSS_Hard                    ((u16)0x0000)
+N
+N#define IS_SPI_NSS(NSS) (((NSS) == SPI_NSS_Soft) || \
+N                         ((NSS) == SPI_NSS_Hard))                         
+X#define IS_SPI_NSS(NSS) (((NSS) == SPI_NSS_Soft) ||                          ((NSS) == SPI_NSS_Hard))                         
+N
+N/* SPI BaudRate Prescaler  */
+N#define SPI_BaudRatePrescaler_2         ((u16)0x0000)
+N#define SPI_BaudRatePrescaler_4         ((u16)0x0008)
+N#define SPI_BaudRatePrescaler_8         ((u16)0x0010)
+N#define SPI_BaudRatePrescaler_16        ((u16)0x0018)
+N#define SPI_BaudRatePrescaler_32        ((u16)0x0020)
+N#define SPI_BaudRatePrescaler_64        ((u16)0x0028)
+N#define SPI_BaudRatePrescaler_128       ((u16)0x0030)
+N#define SPI_BaudRatePrescaler_256       ((u16)0x0038)
+N
+N#define IS_SPI_BAUDRATE_PRESCALER(PRESCALER) (((PRESCALER) == SPI_BaudRatePrescaler_2) || \
+N                                              ((PRESCALER) == SPI_BaudRatePrescaler_4) || \
+N                                              ((PRESCALER) == SPI_BaudRatePrescaler_8) || \
+N                                              ((PRESCALER) == SPI_BaudRatePrescaler_16) || \
+N                                              ((PRESCALER) == SPI_BaudRatePrescaler_32) || \
+N                                              ((PRESCALER) == SPI_BaudRatePrescaler_64) || \
+N                                              ((PRESCALER) == SPI_BaudRatePrescaler_128) || \
+N                                              ((PRESCALER) == SPI_BaudRatePrescaler_256))
+X#define IS_SPI_BAUDRATE_PRESCALER(PRESCALER) (((PRESCALER) == SPI_BaudRatePrescaler_2) ||                                               ((PRESCALER) == SPI_BaudRatePrescaler_4) ||                                               ((PRESCALER) == SPI_BaudRatePrescaler_8) ||                                               ((PRESCALER) == SPI_BaudRatePrescaler_16) ||                                               ((PRESCALER) == SPI_BaudRatePrescaler_32) ||                                               ((PRESCALER) == SPI_BaudRatePrescaler_64) ||                                               ((PRESCALER) == SPI_BaudRatePrescaler_128) ||                                               ((PRESCALER) == SPI_BaudRatePrescaler_256))
+N
+N/* SPI MSB/LSB transmission */
+N#define SPI_FirstBit_MSB                ((u16)0x0000)
+N#define SPI_FirstBit_LSB                ((u16)0x0080)
+N
+N#define IS_SPI_FIRST_BIT(BIT) (((BIT) == SPI_FirstBit_MSB) || \
+N                               ((BIT) == SPI_FirstBit_LSB))
+X#define IS_SPI_FIRST_BIT(BIT) (((BIT) == SPI_FirstBit_MSB) ||                                ((BIT) == SPI_FirstBit_LSB))
+N
+N/* I2S Mode */
+N#define I2S_Mode_SlaveTx                ((u16)0x0000)
+N#define I2S_Mode_SlaveRx                ((u16)0x0100)
+N#define I2S_Mode_MasterTx               ((u16)0x0200)
+N#define I2S_Mode_MasterRx               ((u16)0x0300)
+N
+N#define IS_I2S_MODE(MODE) (((MODE) == I2S_Mode_SlaveTx) || \
+N                           ((MODE) == I2S_Mode_SlaveRx) || \
+N                           ((MODE) == I2S_Mode_MasterTx) || \
+N                           ((MODE) == I2S_Mode_MasterRx) )
+X#define IS_I2S_MODE(MODE) (((MODE) == I2S_Mode_SlaveTx) ||                            ((MODE) == I2S_Mode_SlaveRx) ||                            ((MODE) == I2S_Mode_MasterTx) ||                            ((MODE) == I2S_Mode_MasterRx) )
+N
+N/* I2S Standard */
+N#define I2S_Standard_Phillips           ((u16)0x0000)
+N#define I2S_Standard_MSB                ((u16)0x0010)
+N#define I2S_Standard_LSB                ((u16)0x0020)
+N#define I2S_Standard_PCMShort           ((u16)0x0030)
+N#define I2S_Standard_PCMLong            ((u16)0x00B0)
+N
+N#define IS_I2S_STANDARD(STANDARD) (((STANDARD) == I2S_Standard_Phillips) || \
+N                                   ((STANDARD) == I2S_Standard_MSB) || \
+N                                   ((STANDARD) == I2S_Standard_LSB) || \
+N                                   ((STANDARD) == I2S_Standard_PCMShort) || \
+N                                   ((STANDARD) == I2S_Standard_PCMLong))
+X#define IS_I2S_STANDARD(STANDARD) (((STANDARD) == I2S_Standard_Phillips) ||                                    ((STANDARD) == I2S_Standard_MSB) ||                                    ((STANDARD) == I2S_Standard_LSB) ||                                    ((STANDARD) == I2S_Standard_PCMShort) ||                                    ((STANDARD) == I2S_Standard_PCMLong))
+N
+N/* I2S Data Format */
+N#define I2S_DataFormat_16b              ((u16)0x0000)
+N#define I2S_DataFormat_16bextended      ((u16)0x0001)
+N#define I2S_DataFormat_24b              ((u16)0x0003)
+N#define I2S_DataFormat_32b              ((u16)0x0005)
+N
+N#define IS_I2S_DATA_FORMAT(FORMAT) (((FORMAT) == I2S_DataFormat_16b) || \
+N                                    ((FORMAT) == I2S_DataFormat_16bextended) || \
+N                                    ((FORMAT) == I2S_DataFormat_24b) || \
+N                                    ((FORMAT) == I2S_DataFormat_32b))
+X#define IS_I2S_DATA_FORMAT(FORMAT) (((FORMAT) == I2S_DataFormat_16b) ||                                     ((FORMAT) == I2S_DataFormat_16bextended) ||                                     ((FORMAT) == I2S_DataFormat_24b) ||                                     ((FORMAT) == I2S_DataFormat_32b))
+N
+N/* I2S MCLK Output */ 
+N#define I2S_MCLKOutput_Enable           ((u16)0x0200)
+N#define I2S_MCLKOutput_Disable          ((u16)0x0000)
+N
+N#define IS_I2S_MCLK_OUTPUT(OUTPUT) (((OUTPUT) == I2S_MCLKOutput_Enable) || \
+N                                    ((OUTPUT) == I2S_MCLKOutput_Disable))
+X#define IS_I2S_MCLK_OUTPUT(OUTPUT) (((OUTPUT) == I2S_MCLKOutput_Enable) ||                                     ((OUTPUT) == I2S_MCLKOutput_Disable))
+N
+N/* I2S Audio Frequency */
+N#define I2S_AudioFreq_48k                ((u16)48000)
+N#define I2S_AudioFreq_44k                ((u16)44100)
+N#define I2S_AudioFreq_22k                ((u16)22050)
+N#define I2S_AudioFreq_16k                ((u16)16000)
+N#define I2S_AudioFreq_8k                 ((u16)8000)
+N#define I2S_AudioFreq_Default            ((u16)2)
+N
+N#define IS_I2S_AUDIO_FREQ(FREQ) (((FREQ) == I2S_AudioFreq_48k) || \
+N                                 ((FREQ) == I2S_AudioFreq_44k) || \
+N                                 ((FREQ) == I2S_AudioFreq_22k) || \
+N                                 ((FREQ) == I2S_AudioFreq_16k) || \
+N                                 ((FREQ) == I2S_AudioFreq_8k)  || \
+N                                 ((FREQ) == I2S_AudioFreq_Default))
+X#define IS_I2S_AUDIO_FREQ(FREQ) (((FREQ) == I2S_AudioFreq_48k) ||                                  ((FREQ) == I2S_AudioFreq_44k) ||                                  ((FREQ) == I2S_AudioFreq_22k) ||                                  ((FREQ) == I2S_AudioFreq_16k) ||                                  ((FREQ) == I2S_AudioFreq_8k)  ||                                  ((FREQ) == I2S_AudioFreq_Default))
+N
+N/* I2S Clock Polarity */
+N#define I2S_CPOL_Low                    ((u16)0x0000)
+N#define I2S_CPOL_High                   ((u16)0x0008)
+N
+N#define IS_I2S_CPOL(CPOL) (((CPOL) == I2S_CPOL_Low) || \
+N                           ((CPOL) == I2S_CPOL_High))
+X#define IS_I2S_CPOL(CPOL) (((CPOL) == I2S_CPOL_Low) ||                            ((CPOL) == I2S_CPOL_High))
+N
+N/* SPI_I2S DMA transfer requests */
+N#define SPI_I2S_DMAReq_Tx               ((u16)0x0002)
+N#define SPI_I2S_DMAReq_Rx               ((u16)0x0001)
+N
+N#define IS_SPI_I2S_DMAREQ(DMAREQ) ((((DMAREQ) & (u16)0xFFFC) == 0x00) && ((DMAREQ) != 0x00))
+N
+N/* SPI NSS internal software mangement */
+N#define SPI_NSSInternalSoft_Set         ((u16)0x0100)
+N#define SPI_NSSInternalSoft_Reset       ((u16)0xFEFF)
+N
+N#define IS_SPI_NSS_INTERNAL(INTERNAL) (((INTERNAL) == SPI_NSSInternalSoft_Set) || \
+N                                       ((INTERNAL) == SPI_NSSInternalSoft_Reset))
+X#define IS_SPI_NSS_INTERNAL(INTERNAL) (((INTERNAL) == SPI_NSSInternalSoft_Set) ||                                        ((INTERNAL) == SPI_NSSInternalSoft_Reset))
+N
+N/* SPI CRC Transmit/Receive */
+N#define SPI_CRC_Tx                      ((u8)0x00)
+N#define SPI_CRC_Rx                      ((u8)0x01)
+N
+N#define IS_SPI_CRC(CRC) (((CRC) == SPI_CRC_Tx) || ((CRC) == SPI_CRC_Rx))
+N
+N/* SPI direction transmit/receive */
+N#define SPI_Direction_Rx                ((u16)0xBFFF)
+N#define SPI_Direction_Tx                ((u16)0x4000)
+N
+N#define IS_SPI_DIRECTION(DIRECTION) (((DIRECTION) == SPI_Direction_Rx) || \
+N                                     ((DIRECTION) == SPI_Direction_Tx))
+X#define IS_SPI_DIRECTION(DIRECTION) (((DIRECTION) == SPI_Direction_Rx) ||                                      ((DIRECTION) == SPI_Direction_Tx))
+N
+N/* SPI_I2S interrupts definition */
+N#define SPI_I2S_IT_TXE                  ((u8)0x71)
+N#define SPI_I2S_IT_RXNE                 ((u8)0x60)
+N#define SPI_I2S_IT_ERR                  ((u8)0x50)
+N
+N#define IS_SPI_I2S_CONFIG_IT(IT) (((IT) == SPI_I2S_IT_TXE) || \
+N                                 ((IT) == SPI_I2S_IT_RXNE) || \
+N                                 ((IT) == SPI_I2S_IT_ERR))
+X#define IS_SPI_I2S_CONFIG_IT(IT) (((IT) == SPI_I2S_IT_TXE) ||                                  ((IT) == SPI_I2S_IT_RXNE) ||                                  ((IT) == SPI_I2S_IT_ERR))
+N
+N#define SPI_I2S_IT_OVR                  ((u8)0x56)
+N#define SPI_IT_MODF                     ((u8)0x55)
+N#define SPI_IT_CRCERR                   ((u8)0x54)
+N#define I2S_IT_UDR                      ((u8)0x53)
+N
+N#define IS_SPI_I2S_CLEAR_IT(IT) (((IT) == SPI_I2S_IT_OVR) || \
+N                                 ((IT) == SPI_IT_MODF) || \
+N                                 ((IT) == SPI_IT_CRCERR) || \
+N                                 ((IT) == I2S_IT_UDR))
+X#define IS_SPI_I2S_CLEAR_IT(IT) (((IT) == SPI_I2S_IT_OVR) ||                                  ((IT) == SPI_IT_MODF) ||                                  ((IT) == SPI_IT_CRCERR) ||                                  ((IT) == I2S_IT_UDR))
+N
+N#define IS_SPI_I2S_GET_IT(IT) (((IT) == SPI_I2S_IT_RXNE) || ((IT) == SPI_I2S_IT_TXE) || \
+N                               ((IT) == I2S_IT_UDR) || ((IT) == SPI_IT_CRCERR) || \
+N                               ((IT) == SPI_IT_MODF) || ((IT) == SPI_I2S_IT_OVR))
+X#define IS_SPI_I2S_GET_IT(IT) (((IT) == SPI_I2S_IT_RXNE) || ((IT) == SPI_I2S_IT_TXE) ||                                ((IT) == I2S_IT_UDR) || ((IT) == SPI_IT_CRCERR) ||                                ((IT) == SPI_IT_MODF) || ((IT) == SPI_I2S_IT_OVR))
+N
+N/* SPI_I2S flags definition */
+N#define SPI_I2S_FLAG_RXNE               ((u16)0x0001)
+N#define SPI_I2S_FLAG_TXE                ((u16)0x0002)
+N#define I2S_FLAG_CHSIDE                 ((u16)0x0004)
+N#define I2S_FLAG_UDR                    ((u16)0x0008)
+N#define SPI_FLAG_CRCERR                 ((u16)0x0010)
+N#define SPI_FLAG_MODF                   ((u16)0x0020)
+N#define SPI_I2S_FLAG_OVR                ((u16)0x0040)
+N#define SPI_I2S_FLAG_BSY                ((u16)0x0080)
+N
+N#define IS_SPI_I2S_CLEAR_FLAG(FLAG) (((FLAG) == SPI_I2S_FLAG_OVR) || ((FLAG) == SPI_FLAG_MODF) || \
+N                                     ((FLAG) == SPI_FLAG_CRCERR) || ((FLAG) == I2S_FLAG_UDR))
+X#define IS_SPI_I2S_CLEAR_FLAG(FLAG) (((FLAG) == SPI_I2S_FLAG_OVR) || ((FLAG) == SPI_FLAG_MODF) ||                                      ((FLAG) == SPI_FLAG_CRCERR) || ((FLAG) == I2S_FLAG_UDR))
+N#define IS_SPI_I2S_GET_FLAG(FLAG) (((FLAG) == SPI_I2S_FLAG_BSY) || ((FLAG) == SPI_I2S_FLAG_OVR) || \
+N                                   ((FLAG) == SPI_FLAG_MODF) || ((FLAG) == SPI_FLAG_CRCERR) || \
+N                                   ((FLAG) == I2S_FLAG_UDR) || ((FLAG) == I2S_FLAG_CHSIDE) || \
+N                                   ((FLAG) == SPI_I2S_FLAG_TXE) || ((FLAG) == SPI_I2S_FLAG_RXNE))
+X#define IS_SPI_I2S_GET_FLAG(FLAG) (((FLAG) == SPI_I2S_FLAG_BSY) || ((FLAG) == SPI_I2S_FLAG_OVR) ||                                    ((FLAG) == SPI_FLAG_MODF) || ((FLAG) == SPI_FLAG_CRCERR) ||                                    ((FLAG) == I2S_FLAG_UDR) || ((FLAG) == I2S_FLAG_CHSIDE) ||                                    ((FLAG) == SPI_I2S_FLAG_TXE) || ((FLAG) == SPI_I2S_FLAG_RXNE))
+N
+N/* SPI CRC polynomial --------------------------------------------------------*/
+N#define IS_SPI_CRC_POLYNOMIAL(POLYNOMIAL) ((POLYNOMIAL) >= 0x1)
+N
+N/* Exported macro ------------------------------------------------------------*/
+N/* Exported functions ------------------------------------------------------- */
+Nvoid SPI_I2S_DeInit(SPI_TypeDef* SPIx);
+Nvoid SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct);
+Nvoid I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct);
+Nvoid SPI_StructInit(SPI_InitTypeDef* SPI_InitStruct);
+Nvoid I2S_StructInit(I2S_InitTypeDef* I2S_InitStruct);
+Nvoid SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState);
+Nvoid I2S_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState);
+Nvoid SPI_I2S_ITConfig(SPI_TypeDef* SPIx, u8 SPI_I2S_IT, FunctionalState NewState);
+Nvoid SPI_I2S_DMACmd(SPI_TypeDef* SPIx, u16 SPI_I2S_DMAReq, FunctionalState NewState);
+Nvoid SPI_I2S_SendData(SPI_TypeDef* SPIx, u16 Data);
+Nu16 SPI_I2S_ReceiveData(SPI_TypeDef* SPIx);
+Nvoid SPI_NSSInternalSoftwareConfig(SPI_TypeDef* SPIx, u16 SPI_NSSInternalSoft);
+Nvoid SPI_SSOutputCmd(SPI_TypeDef* SPIx, FunctionalState NewState);
+Nvoid SPI_DataSizeConfig(SPI_TypeDef* SPIx, u16 SPI_DataSize);
+Nvoid SPI_TransmitCRC(SPI_TypeDef* SPIx);
+Nvoid SPI_CalculateCRC(SPI_TypeDef* SPIx, FunctionalState NewState);
+Nu16 SPI_GetCRC(SPI_TypeDef* SPIx, u8 SPI_CRC);
+Nu16 SPI_GetCRCPolynomial(SPI_TypeDef* SPIx);
+Nvoid SPI_BiDirectionalLineConfig(SPI_TypeDef* SPIx, u16 SPI_Direction);
+NFlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, u16 SPI_I2S_FLAG);
+Nvoid SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, u16 SPI_I2S_FLAG);
+NITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, u8 SPI_I2S_IT);
+Nvoid SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, u8 SPI_I2S_IT);
+N
+N#endif /*__STM32F10x_SPI_H */
+N
+N/******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/
+L 20 "..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_spi.c" 2
+N#include "stm32f10x_rcc.h"
+L 1 "..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h" 1
+N/******************** (C) COPYRIGHT 2008 STMicroelectronics ********************
+N* File Name          : stm32f10x_rcc.h
+N* Author             : MCD Application Team
+N* Version            : V2.0
+N* Date               : 05/23/2008
+N* Description        : This file contains all the functions prototypes for the
+N*                      RCC firmware library.
+N********************************************************************************
+N* THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+N* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+N* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+N* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+N* CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+N* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+N* FOR MORE INFORMATION PLEASE CAREFULLY READ THE LICENSE AGREEMENT FILE LOCATED 
+N* IN THE ROOT DIRECTORY OF THIS FIRMWARE PACKAGE.
+N*******************************************************************************/
+N
+N/* Define to prevent recursive inclusion -------------------------------------*/
+N#ifndef __STM32F10x_RCC_H
+N#define __STM32F10x_RCC_H
+N
+N/* Includes ------------------------------------------------------------------*/
+N#include "stm32f10x_map.h"
+N
+N/* Exported types ------------------------------------------------------------*/
+Ntypedef struct
+N{
+N  u32 SYSCLK_Frequency;
+N  u32 HCLK_Frequency;
+N  u32 PCLK1_Frequency;
+N  u32 PCLK2_Frequency;
+N  u32 ADCCLK_Frequency;
+N}RCC_ClocksTypeDef;
+N
+N/* Exported constants --------------------------------------------------------*/
+N/* HSE configuration */
+N#define RCC_HSE_OFF                      ((u32)0x00000000)
+N#define RCC_HSE_ON                       ((u32)0x00010000)
+N#define RCC_HSE_Bypass                   ((u32)0x00040000)
+N
+N#define IS_RCC_HSE(HSE) (((HSE) == RCC_HSE_OFF) || ((HSE) == RCC_HSE_ON) || \
+N                         ((HSE) == RCC_HSE_Bypass))
+X#define IS_RCC_HSE(HSE) (((HSE) == RCC_HSE_OFF) || ((HSE) == RCC_HSE_ON) ||                          ((HSE) == RCC_HSE_Bypass))
+N
+N/* PLL entry clock source */
+N#define RCC_PLLSource_HSI_Div2           ((u32)0x00000000)
+N#define RCC_PLLSource_HSE_Div1           ((u32)0x00010000)
+N#define RCC_PLLSource_HSE_Div2           ((u32)0x00030000)
+N
+N#define IS_RCC_PLL_SOURCE(SOURCE) (((SOURCE) == RCC_PLLSource_HSI_Div2) || \
+N                                   ((SOURCE) == RCC_PLLSource_HSE_Div1) || \
+N                                   ((SOURCE) == RCC_PLLSource_HSE_Div2))
+X#define IS_RCC_PLL_SOURCE(SOURCE) (((SOURCE) == RCC_PLLSource_HSI_Div2) ||                                    ((SOURCE) == RCC_PLLSource_HSE_Div1) ||                                    ((SOURCE) == RCC_PLLSource_HSE_Div2))
+N
+N/* PLL multiplication factor */
+N#define RCC_PLLMul_2                     ((u32)0x00000000)
+N#define RCC_PLLMul_3                     ((u32)0x00040000)
+N#define RCC_PLLMul_4                     ((u32)0x00080000)
+N#define RCC_PLLMul_5                     ((u32)0x000C0000)
+N#define RCC_PLLMul_6                     ((u32)0x00100000)
+N#define RCC_PLLMul_7                     ((u32)0x00140000)
+N#define RCC_PLLMul_8                     ((u32)0x00180000)
+N#define RCC_PLLMul_9                     ((u32)0x001C0000)
+N#define RCC_PLLMul_10                    ((u32)0x00200000)
+N#define RCC_PLLMul_11                    ((u32)0x00240000)
+N#define RCC_PLLMul_12                    ((u32)0x00280000)
+N#define RCC_PLLMul_13                    ((u32)0x002C0000)
+N#define RCC_PLLMul_14                    ((u32)0x00300000)
+N#define RCC_PLLMul_15                    ((u32)0x00340000)
+N#define RCC_PLLMul_16                    ((u32)0x00380000)
+N
+N#define IS_RCC_PLL_MUL(MUL) (((MUL) == RCC_PLLMul_2) || ((MUL) == RCC_PLLMul_3)   || \
+N                             ((MUL) == RCC_PLLMul_4) || ((MUL) == RCC_PLLMul_5)   || \
+N                             ((MUL) == RCC_PLLMul_6) || ((MUL) == RCC_PLLMul_7)   || \
+N                             ((MUL) == RCC_PLLMul_8) || ((MUL) == RCC_PLLMul_9)   || \
+N                             ((MUL) == RCC_PLLMul_10) || ((MUL) == RCC_PLLMul_11) || \
+N                             ((MUL) == RCC_PLLMul_12) || ((MUL) == RCC_PLLMul_13) || \
+N                             ((MUL) == RCC_PLLMul_14) || ((MUL) == RCC_PLLMul_15) || \
+N                             ((MUL) == RCC_PLLMul_16))
+X#define IS_RCC_PLL_MUL(MUL) (((MUL) == RCC_PLLMul_2) || ((MUL) == RCC_PLLMul_3)   ||                              ((MUL) == RCC_PLLMul_4) || ((MUL) == RCC_PLLMul_5)   ||                              ((MUL) == RCC_PLLMul_6) || ((MUL) == RCC_PLLMul_7)   ||                              ((MUL) == RCC_PLLMul_8) || ((MUL) == RCC_PLLMul_9)   ||                              ((MUL) == RCC_PLLMul_10) || ((MUL) == RCC_PLLMul_11) ||                              ((MUL) == RCC_PLLMul_12) || ((MUL) == RCC_PLLMul_13) ||                              ((MUL) == RCC_PLLMul_14) || ((MUL) == RCC_PLLMul_15) ||                              ((MUL) == RCC_PLLMul_16))
+N
+N/* System clock source */
+N#define RCC_SYSCLKSource_HSI             ((u32)0x00000000)
+N#define RCC_SYSCLKSource_HSE             ((u32)0x00000001)
+N#define RCC_SYSCLKSource_PLLCLK          ((u32)0x00000002)
+N
+N#define IS_RCC_SYSCLK_SOURCE(SOURCE) (((SOURCE) == RCC_SYSCLKSource_HSI) || \
+N                                      ((SOURCE) == RCC_SYSCLKSource_HSE) || \
+N                                      ((SOURCE) == RCC_SYSCLKSource_PLLCLK))
+X#define IS_RCC_SYSCLK_SOURCE(SOURCE) (((SOURCE) == RCC_SYSCLKSource_HSI) ||                                       ((SOURCE) == RCC_SYSCLKSource_HSE) ||                                       ((SOURCE) == RCC_SYSCLKSource_PLLCLK))
+N
+N/* AHB clock source */
+N#define RCC_SYSCLK_Div1                  ((u32)0x00000000)
+N#define RCC_SYSCLK_Div2                  ((u32)0x00000080)
+N#define RCC_SYSCLK_Div4                  ((u32)0x00000090)
+N#define RCC_SYSCLK_Div8                  ((u32)0x000000A0)
+N#define RCC_SYSCLK_Div16                 ((u32)0x000000B0)
+N#define RCC_SYSCLK_Div64                 ((u32)0x000000C0)
+N#define RCC_SYSCLK_Div128                ((u32)0x000000D0)
+N#define RCC_SYSCLK_Div256                ((u32)0x000000E0)
+N#define RCC_SYSCLK_Div512                ((u32)0x000000F0)
+N
+N#define IS_RCC_HCLK(HCLK) (((HCLK) == RCC_SYSCLK_Div1) || ((HCLK) == RCC_SYSCLK_Div2) || \
+N                           ((HCLK) == RCC_SYSCLK_Div4) || ((HCLK) == RCC_SYSCLK_Div8) || \
+N                           ((HCLK) == RCC_SYSCLK_Div16) || ((HCLK) == RCC_SYSCLK_Div64) || \
+N                           ((HCLK) == RCC_SYSCLK_Div128) || ((HCLK) == RCC_SYSCLK_Div256) || \
+N                           ((HCLK) == RCC_SYSCLK_Div512))
+X#define IS_RCC_HCLK(HCLK) (((HCLK) == RCC_SYSCLK_Div1) || ((HCLK) == RCC_SYSCLK_Div2) ||                            ((HCLK) == RCC_SYSCLK_Div4) || ((HCLK) == RCC_SYSCLK_Div8) ||                            ((HCLK) == RCC_SYSCLK_Div16) || ((HCLK) == RCC_SYSCLK_Div64) ||                            ((HCLK) == RCC_SYSCLK_Div128) || ((HCLK) == RCC_SYSCLK_Div256) ||                            ((HCLK) == RCC_SYSCLK_Div512))
+N
+N/* APB1/APB2 clock source */
+N#define RCC_HCLK_Div1                    ((u32)0x00000000)
+N#define RCC_HCLK_Div2                    ((u32)0x00000400)
+N#define RCC_HCLK_Div4                    ((u32)0x00000500)
+N#define RCC_HCLK_Div8                    ((u32)0x00000600)
+N#define RCC_HCLK_Div16                   ((u32)0x00000700)
+N
+N#define IS_RCC_PCLK(PCLK) (((PCLK) == RCC_HCLK_Div1) || ((PCLK) == RCC_HCLK_Div2) || \
+N                           ((PCLK) == RCC_HCLK_Div4) || ((PCLK) == RCC_HCLK_Div8) || \
+N                           ((PCLK) == RCC_HCLK_Div16))
+X#define IS_RCC_PCLK(PCLK) (((PCLK) == RCC_HCLK_Div1) || ((PCLK) == RCC_HCLK_Div2) ||                            ((PCLK) == RCC_HCLK_Div4) || ((PCLK) == RCC_HCLK_Div8) ||                            ((PCLK) == RCC_HCLK_Div16))
+N
+N/* RCC Interrupt source */
+N#define RCC_IT_LSIRDY                    ((u8)0x01)
+N#define RCC_IT_LSERDY                    ((u8)0x02)
+N#define RCC_IT_HSIRDY                    ((u8)0x04)
+N#define RCC_IT_HSERDY                    ((u8)0x08)
+N#define RCC_IT_PLLRDY                    ((u8)0x10)
+N#define RCC_IT_CSS                       ((u8)0x80)
+N
+N#define IS_RCC_IT(IT) ((((IT) & (u8)0xE0) == 0x00) && ((IT) != 0x00))
+N#define IS_RCC_GET_IT(IT) (((IT) == RCC_IT_LSIRDY) || ((IT) == RCC_IT_LSERDY) || \
+N                           ((IT) == RCC_IT_HSIRDY) || ((IT) == RCC_IT_HSERDY) || \
+N                           ((IT) == RCC_IT_PLLRDY) || ((IT) == RCC_IT_CSS))
+X#define IS_RCC_GET_IT(IT) (((IT) == RCC_IT_LSIRDY) || ((IT) == RCC_IT_LSERDY) ||                            ((IT) == RCC_IT_HSIRDY) || ((IT) == RCC_IT_HSERDY) ||                            ((IT) == RCC_IT_PLLRDY) || ((IT) == RCC_IT_CSS))
+N#define IS_RCC_CLEAR_IT(IT) ((((IT) & (u8)0x60) == 0x00) && ((IT) != 0x00))
+N
+N/* USB clock source */
+N#define RCC_USBCLKSource_PLLCLK_1Div5    ((u8)0x00)
+N#define RCC_USBCLKSource_PLLCLK_Div1     ((u8)0x01)
+N
+N#define IS_RCC_USBCLK_SOURCE(SOURCE) (((SOURCE) == RCC_USBCLKSource_PLLCLK_1Div5) || \
+N                                      ((SOURCE) == RCC_USBCLKSource_PLLCLK_Div1))
+X#define IS_RCC_USBCLK_SOURCE(SOURCE) (((SOURCE) == RCC_USBCLKSource_PLLCLK_1Div5) ||                                       ((SOURCE) == RCC_USBCLKSource_PLLCLK_Div1))
+N
+N/* ADC clock source */
+N#define RCC_PCLK2_Div2                   ((u32)0x00000000)
+N#define RCC_PCLK2_Div4                   ((u32)0x00004000)
+N#define RCC_PCLK2_Div6                   ((u32)0x00008000)
+N#define RCC_PCLK2_Div8                   ((u32)0x0000C000)
+N
+N#define IS_RCC_ADCCLK(ADCCLK) (((ADCCLK) == RCC_PCLK2_Div2) || ((ADCCLK) == RCC_PCLK2_Div4) || \
+N                               ((ADCCLK) == RCC_PCLK2_Div6) || ((ADCCLK) == RCC_PCLK2_Div8))
+X#define IS_RCC_ADCCLK(ADCCLK) (((ADCCLK) == RCC_PCLK2_Div2) || ((ADCCLK) == RCC_PCLK2_Div4) ||                                ((ADCCLK) == RCC_PCLK2_Div6) || ((ADCCLK) == RCC_PCLK2_Div8))
+N
+N/* LSE configuration */
+N#define RCC_LSE_OFF                      ((u8)0x00)
+N#define RCC_LSE_ON                       ((u8)0x01)
+N#define RCC_LSE_Bypass                   ((u8)0x04)
+N
+N#define IS_RCC_LSE(LSE) (((LSE) == RCC_LSE_OFF) || ((LSE) == RCC_LSE_ON) || \
+N                         ((LSE) == RCC_LSE_Bypass))
+X#define IS_RCC_LSE(LSE) (((LSE) == RCC_LSE_OFF) || ((LSE) == RCC_LSE_ON) ||                          ((LSE) == RCC_LSE_Bypass))
+N
+N/* RTC clock source */
+N#define RCC_RTCCLKSource_LSE             ((u32)0x00000100)
+N#define RCC_RTCCLKSource_LSI             ((u32)0x00000200)
+N#define RCC_RTCCLKSource_HSE_Div128      ((u32)0x00000300)
+N
+N#define IS_RCC_RTCCLK_SOURCE(SOURCE) (((SOURCE) == RCC_RTCCLKSource_LSE) || \
+N                                      ((SOURCE) == RCC_RTCCLKSource_LSI) || \
+N                                      ((SOURCE) == RCC_RTCCLKSource_HSE_Div128))
+X#define IS_RCC_RTCCLK_SOURCE(SOURCE) (((SOURCE) == RCC_RTCCLKSource_LSE) ||                                       ((SOURCE) == RCC_RTCCLKSource_LSI) ||                                       ((SOURCE) == RCC_RTCCLKSource_HSE_Div128))
+N
+N/* AHB peripheral */
+N#define RCC_AHBPeriph_DMA1               ((u32)0x00000001)
+N#define RCC_AHBPeriph_DMA2               ((u32)0x00000002)
+N#define RCC_AHBPeriph_SRAM               ((u32)0x00000004)
+N#define RCC_AHBPeriph_FLITF              ((u32)0x00000010)
+N#define RCC_AHBPeriph_CRC                ((u32)0x00000040)
+N#define RCC_AHBPeriph_FSMC               ((u32)0x00000100)
+N#define RCC_AHBPeriph_SDIO               ((u32)0x00000400)
+N
+N#define IS_RCC_AHB_PERIPH(PERIPH) ((((PERIPH) & 0xFFFFFAA8) == 0x00) && ((PERIPH) != 0x00))
+N
+N/* APB2 peripheral */
+N#define RCC_APB2Periph_AFIO              ((u32)0x00000001)
+N#define RCC_APB2Periph_GPIOA             ((u32)0x00000004)
+N#define RCC_APB2Periph_GPIOB             ((u32)0x00000008)
+N#define RCC_APB2Periph_GPIOC             ((u32)0x00000010)
+N#define RCC_APB2Periph_GPIOD             ((u32)0x00000020)
+N#define RCC_APB2Periph_GPIOE             ((u32)0x00000040)
+N#define RCC_APB2Periph_GPIOF             ((u32)0x00000080)
+N#define RCC_APB2Periph_GPIOG             ((u32)0x00000100)
+N#define RCC_APB2Periph_ADC1              ((u32)0x00000200)
+N#define RCC_APB2Periph_ADC2              ((u32)0x00000400)
+N#define RCC_APB2Periph_TIM1              ((u32)0x00000800)
+N#define RCC_APB2Periph_SPI1              ((u32)0x00001000)
+N#define RCC_APB2Periph_TIM8              ((u32)0x00002000)
+N#define RCC_APB2Periph_USART1            ((u32)0x00004000)
+N#define RCC_APB2Periph_ADC3              ((u32)0x00008000)
+N#define RCC_APB2Periph_ALL               ((u32)0x0000FFFD)
+N
+N#define IS_RCC_APB2_PERIPH(PERIPH) ((((PERIPH) & 0xFFFF0002) == 0x00) && ((PERIPH) != 0x00))
+N
+N/* APB1 peripheral */
+N#define RCC_APB1Periph_TIM2              ((u32)0x00000001)
+N#define RCC_APB1Periph_TIM3              ((u32)0x00000002)
+N#define RCC_APB1Periph_TIM4              ((u32)0x00000004)
+N#define RCC_APB1Periph_TIM5              ((u32)0x00000008)
+N#define RCC_APB1Periph_TIM6              ((u32)0x00000010)
+N#define RCC_APB1Periph_TIM7              ((u32)0x00000020)
+N#define RCC_APB1Periph_WWDG              ((u32)0x00000800)
+N#define RCC_APB1Periph_SPI2              ((u32)0x00004000)
+N#define RCC_APB1Periph_SPI3              ((u32)0x00008000)
+N#define RCC_APB1Periph_USART2            ((u32)0x00020000)
+N#define RCC_APB1Periph_USART3            ((u32)0x00040000)
+N#define RCC_APB1Periph_UART4             ((u32)0x00080000)
+N#define RCC_APB1Periph_UART5             ((u32)0x00100000)
+N#define RCC_APB1Periph_I2C1              ((u32)0x00200000)
+N#define RCC_APB1Periph_I2C2              ((u32)0x00400000)
+N#define RCC_APB1Periph_USB               ((u32)0x00800000)
+N#define RCC_APB1Periph_CAN               ((u32)0x02000000)
+N#define RCC_APB1Periph_BKP               ((u32)0x08000000)
+N#define RCC_APB1Periph_PWR               ((u32)0x10000000)
+N#define RCC_APB1Periph_DAC               ((u32)0x20000000)
+N#define RCC_APB1Periph_ALL               ((u32)0x3AFEC83F)
+N
+N#define IS_RCC_APB1_PERIPH(PERIPH) ((((PERIPH) & 0xC50137C0) == 0x00) && ((PERIPH) != 0x00))
+N
+N/* Clock source to output on MCO pin */
+N#define RCC_MCO_NoClock                  ((u8)0x00)
+N#define RCC_MCO_SYSCLK                   ((u8)0x04)
+N#define RCC_MCO_HSI                      ((u8)0x05)
+N#define RCC_MCO_HSE                      ((u8)0x06)
+N#define RCC_MCO_PLLCLK_Div2              ((u8)0x07)
+N
+N#define IS_RCC_MCO(MCO) (((MCO) == RCC_MCO_NoClock) || ((MCO) == RCC_MCO_HSI) || \
+N                         ((MCO) == RCC_MCO_SYSCLK)  || ((MCO) == RCC_MCO_HSE) || \
+N                         ((MCO) == RCC_MCO_PLLCLK_Div2))
+X#define IS_RCC_MCO(MCO) (((MCO) == RCC_MCO_NoClock) || ((MCO) == RCC_MCO_HSI) ||                          ((MCO) == RCC_MCO_SYSCLK)  || ((MCO) == RCC_MCO_HSE) ||                          ((MCO) == RCC_MCO_PLLCLK_Div2))
+N
+N/* RCC Flag */
+N#define RCC_FLAG_HSIRDY                  ((u8)0x20)
+N#define RCC_FLAG_HSERDY                  ((u8)0x31)
+N#define RCC_FLAG_PLLRDY                  ((u8)0x39)
+N#define RCC_FLAG_LSERDY                  ((u8)0x41)
+N#define RCC_FLAG_LSIRDY                  ((u8)0x61)
+N#define RCC_FLAG_PINRST                  ((u8)0x7A)
+N#define RCC_FLAG_PORRST                  ((u8)0x7B)
+N#define RCC_FLAG_SFTRST                  ((u8)0x7C)
+N#define RCC_FLAG_IWDGRST                 ((u8)0x7D)
+N#define RCC_FLAG_WWDGRST                 ((u8)0x7E)
+N#define RCC_FLAG_LPWRRST                 ((u8)0x7F)
+N
+N#define IS_RCC_FLAG(FLAG) (((FLAG) == RCC_FLAG_HSIRDY) || ((FLAG) == RCC_FLAG_HSERDY) || \
+N                           ((FLAG) == RCC_FLAG_PLLRDY) || ((FLAG) == RCC_FLAG_LSERDY) || \
+N                           ((FLAG) == RCC_FLAG_LSIRDY) || ((FLAG) == RCC_FLAG_PINRST) || \
+N                           ((FLAG) == RCC_FLAG_PORRST) || ((FLAG) == RCC_FLAG_SFTRST) || \
+N                           ((FLAG) == RCC_FLAG_IWDGRST)|| ((FLAG) == RCC_FLAG_WWDGRST)|| \
+N                           ((FLAG) == RCC_FLAG_LPWRRST))
+X#define IS_RCC_FLAG(FLAG) (((FLAG) == RCC_FLAG_HSIRDY) || ((FLAG) == RCC_FLAG_HSERDY) ||                            ((FLAG) == RCC_FLAG_PLLRDY) || ((FLAG) == RCC_FLAG_LSERDY) ||                            ((FLAG) == RCC_FLAG_LSIRDY) || ((FLAG) == RCC_FLAG_PINRST) ||                            ((FLAG) == RCC_FLAG_PORRST) || ((FLAG) == RCC_FLAG_SFTRST) ||                            ((FLAG) == RCC_FLAG_IWDGRST)|| ((FLAG) == RCC_FLAG_WWDGRST)||                            ((FLAG) == RCC_FLAG_LPWRRST))
+N
+N#define IS_RCC_CALIBRATION_VALUE(VALUE) ((VALUE) <= 0x1F)
+N
+N/* Exported macro ------------------------------------------------------------*/
+N/* Exported functions ------------------------------------------------------- */
+Nvoid RCC_DeInit(void);
+Nvoid RCC_HSEConfig(u32 RCC_HSE);
+NErrorStatus RCC_WaitForHSEStartUp(void);
+Nvoid RCC_AdjustHSICalibrationValue(u8 HSICalibrationValue);
+Nvoid RCC_HSICmd(FunctionalState NewState);
+Nvoid RCC_PLLConfig(u32 RCC_PLLSource, u32 RCC_PLLMul);
+Nvoid RCC_PLLCmd(FunctionalState NewState);
+Nvoid RCC_SYSCLKConfig(u32 RCC_SYSCLKSource);
+Nu8 RCC_GetSYSCLKSource(void);
+Nvoid RCC_HCLKConfig(u32 RCC_SYSCLK);
+Nvoid RCC_PCLK1Config(u32 RCC_HCLK);
+Nvoid RCC_PCLK2Config(u32 RCC_HCLK);
+Nvoid RCC_ITConfig(u8 RCC_IT, FunctionalState NewState);
+Nvoid RCC_USBCLKConfig(u32 RCC_USBCLKSource);
+Nvoid RCC_ADCCLKConfig(u32 RCC_PCLK2);
+Nvoid RCC_LSEConfig(u8 RCC_LSE);
+Nvoid RCC_LSICmd(FunctionalState NewState);
+Nvoid RCC_RTCCLKConfig(u32 RCC_RTCCLKSource);
+Nvoid RCC_RTCCLKCmd(FunctionalState NewState);
+Nvoid RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks);
+Nvoid RCC_AHBPeriphClockCmd(u32 RCC_AHBPeriph, FunctionalState NewState);
+Nvoid RCC_APB2PeriphClockCmd(u32 RCC_APB2Periph, FunctionalState NewState);
+Nvoid RCC_APB1PeriphClockCmd(u32 RCC_APB1Periph, FunctionalState NewState);
+Nvoid RCC_APB2PeriphResetCmd(u32 RCC_APB2Periph, FunctionalState NewState);
+Nvoid RCC_APB1PeriphResetCmd(u32 RCC_APB1Periph, FunctionalState NewState);
+Nvoid RCC_BackupResetCmd(FunctionalState NewState);
+Nvoid RCC_ClockSecuritySystemCmd(FunctionalState NewState);
+Nvoid RCC_MCOConfig(u8 RCC_MCO);
+NFlagStatus RCC_GetFlagStatus(u8 RCC_FLAG);
+Nvoid RCC_ClearFlag(void);
+NITStatus RCC_GetITStatus(u8 RCC_IT);
+Nvoid RCC_ClearITPendingBit(u8 RCC_IT);
+N
+N#endif /* __STM32F10x_RCC_H */
+N
+N/******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/
+L 21 "..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_spi.c" 2
+N
+N/* Private typedef -----------------------------------------------------------*/
+N/* Private define ------------------------------------------------------------*/
+N/* SPI SPE mask */
+N#define CR1_SPE_Set          ((u16)0x0040)
+N#define CR1_SPE_Reset        ((u16)0xFFBF)
+N
+N/* I2S I2SE mask */
+N#define I2SCFGR_I2SE_Set     ((u16)0x0400)
+N#define I2SCFGR_I2SE_Reset   ((u16)0xFBFF)
+N
+N/* SPI CRCNext mask */
+N#define CR1_CRCNext_Set      ((u16)0x1000)
+N
+N/* SPI CRCEN mask */
+N#define CR1_CRCEN_Set        ((u16)0x2000)
+N#define CR1_CRCEN_Reset      ((u16)0xDFFF)
+N
+N/* SPI SSOE mask */
+N#define CR2_SSOE_Set         ((u16)0x0004)
+N#define CR2_SSOE_Reset       ((u16)0xFFFB)
+N
+N/* SPI registers Masks */
+N#define CR1_CLEAR_Mask       ((u16)0x3040)
+N#define I2SCFGR_CLEAR_Mask   ((u16)0xF040)
+N
+N/* SPI or I2S mode selection masks */
+N#define SPI_Mode_Select      ((u16)0xF7FF)
+N#define I2S_Mode_Select      ((u16)0x0800)   
+N
+N/* Private macro -------------------------------------------------------------*/
+N/* Private variables ---------------------------------------------------------*/
+N/* Private function prototypes -----------------------------------------------*/
+N/* Private functions ---------------------------------------------------------*/
+N
+N/*******************************************************************************
+N* Function Name  : SPI_I2S_DeInit
+N* Description    : Deinitializes the SPIx peripheral registers to their default
+N*                  reset values (Affects also the I2Ss).
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_I2S_DeInit(SPI_TypeDef* SPIx)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  
+N  switch (*(u32*)&SPIx)
+N  {
+N    case SPI1_BASE:
+X    case ((((u32)0x40000000) + 0x10000) + 0x3000):
+N      /* Enable SPI1 reset state */
+N      RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI1, ENABLE);
+X      RCC_APB2PeriphResetCmd(((u32)0x00001000), ENABLE);
+N      /* Release SPI1 from reset state */
+N      RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI1, DISABLE);
+X      RCC_APB2PeriphResetCmd(((u32)0x00001000), DISABLE);
+N      break;
+N
+N    case SPI2_BASE:
+X    case (((u32)0x40000000) + 0x3800):
+N      /* Enable SPI2 reset state */
+N      RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI2, ENABLE);
+X      RCC_APB1PeriphResetCmd(((u32)0x00004000), ENABLE);
+N      /* Release SPI2 from reset state */
+N      RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI2, DISABLE);
+X      RCC_APB1PeriphResetCmd(((u32)0x00004000), DISABLE);
+N      break;
+N
+N    case SPI3_BASE:
+X    case (((u32)0x40000000) + 0x3C00):
+N      /* Enable SPI3 reset state */
+N      RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, ENABLE);
+X      RCC_APB1PeriphResetCmd(((u32)0x00008000), ENABLE);
+N      /* Release SPI3 from reset state */
+N      RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, DISABLE);
+X      RCC_APB1PeriphResetCmd(((u32)0x00008000), DISABLE);
+N      break;
+N
+N    default:
+N      break;
+N  }
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_Init
+N* Description    : Initializes the SPIx peripheral according to the specified 
+N*                  parameters in the SPI_InitStruct.
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N*                  - SPI_InitStruct: pointer to a SPI_InitTypeDef structure that
+N*                    contains the configuration information for the specified
+N*                    SPI peripheral.
+N* Output         : None
+N* Return         : None
+N******************************************************************************/
+Nvoid SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct)
+N{
+N  u16 tmpreg = 0;
+N  
+N  /* check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));   
+X  ((void)0);   
+N  
+N  /* Check the SPI parameters */
+N  assert_param(IS_SPI_DIRECTION_MODE(SPI_InitStruct->SPI_Direction));
+X  ((void)0);
+N  assert_param(IS_SPI_MODE(SPI_InitStruct->SPI_Mode));
+X  ((void)0);
+N  assert_param(IS_SPI_DATASIZE(SPI_InitStruct->SPI_DataSize));
+X  ((void)0);
+N  assert_param(IS_SPI_CPOL(SPI_InitStruct->SPI_CPOL));
+X  ((void)0);
+N  assert_param(IS_SPI_CPHA(SPI_InitStruct->SPI_CPHA));
+X  ((void)0);
+N  assert_param(IS_SPI_NSS(SPI_InitStruct->SPI_NSS));
+X  ((void)0);
+N  assert_param(IS_SPI_BAUDRATE_PRESCALER(SPI_InitStruct->SPI_BaudRatePrescaler));
+X  ((void)0);
+N  assert_param(IS_SPI_FIRST_BIT(SPI_InitStruct->SPI_FirstBit));
+X  ((void)0);
+N  assert_param(IS_SPI_CRC_POLYNOMIAL(SPI_InitStruct->SPI_CRCPolynomial));
+X  ((void)0);
+N
+N/*---------------------------- SPIx CR1 Configuration ------------------------*/
+N  /* Get the SPIx CR1 value */
+N  tmpreg = SPIx->CR1;
+N  /* Clear BIDIMode, BIDIOE, RxONLY, SSM, SSI, LSBFirst, BR, MSTR, CPOL and CPHA bits */
+N  tmpreg &= CR1_CLEAR_Mask;
+X  tmpreg &= ((u16)0x3040);
+N  /* Configure SPIx: direction, NSS management, first transmitted bit, BaudRate prescaler
+N     master/salve mode, CPOL and CPHA */
+N  /* Set BIDImode, BIDIOE and RxONLY bits according to SPI_Direction value */
+N  /* Set SSM, SSI and MSTR bits according to SPI_Mode and SPI_NSS values */
+N  /* Set LSBFirst bit according to SPI_FirstBit value */
+N  /* Set BR bits according to SPI_BaudRatePrescaler value */
+N  /* Set CPOL bit according to SPI_CPOL value */
+N  /* Set CPHA bit according to SPI_CPHA value */
+N  tmpreg |= (u16)((u32)SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode |
+N                  SPI_InitStruct->SPI_DataSize | SPI_InitStruct->SPI_CPOL |  
+N                  SPI_InitStruct->SPI_CPHA | SPI_InitStruct->SPI_NSS |  
+N                  SPI_InitStruct->SPI_BaudRatePrescaler | SPI_InitStruct->SPI_FirstBit);
+N  /* Write to SPIx CR1 */
+N  SPIx->CR1 = tmpreg;
+N  
+N  /* Activate the SPI mode (Reset I2SMOD bit in I2SCFGR register) */
+N  SPIx->I2SCFGR &= SPI_Mode_Select;		
+X  SPIx->I2SCFGR &= ((u16)0xF7FF);		
+N
+N/*---------------------------- SPIx CRCPOLY Configuration --------------------*/
+N  /* Write to SPIx CRCPOLY */
+N  SPIx->CRCPR = SPI_InitStruct->SPI_CRCPolynomial;
+N}
+N
+N/*******************************************************************************
+N* Function Name  : I2S_Init
+N* Description    : Initializes the SPIx peripheral according to the specified 
+N*                  parameters in the I2S_InitStruct.
+N* Input          : - SPIx: where x can be  2 or 3 to select the SPI peripheral
+N*                     (configured in I2S mode).
+N*                  - I2S_InitStruct: pointer to an I2S_InitTypeDef structure that
+N*                    contains the configuration information for the specified
+N*                    SPI peripheral configured in I2S mode.
+N* Output         : None
+N* Return         : None
+N******************************************************************************/
+Nvoid I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct)
+N{
+N  u16 tmpreg = 0, i2sdiv = 2, i2sodd = 0, packetlength = 1;
+N  u32 tmp = 0;
+N  RCC_ClocksTypeDef RCC_Clocks;
+N   
+N  /* Check the I2S parameters */
+N  assert_param(IS_SPI_23_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_I2S_MODE(I2S_InitStruct->I2S_Mode));
+X  ((void)0);
+N  assert_param(IS_I2S_STANDARD(I2S_InitStruct->I2S_Standard));
+X  ((void)0);
+N  assert_param(IS_I2S_DATA_FORMAT(I2S_InitStruct->I2S_DataFormat));
+X  ((void)0);
+N  assert_param(IS_I2S_MCLK_OUTPUT(I2S_InitStruct->I2S_MCLKOutput));
+X  ((void)0);
+N  assert_param(IS_I2S_AUDIO_FREQ(I2S_InitStruct->I2S_AudioFreq));
+X  ((void)0);
+N  assert_param(IS_I2S_CPOL(I2S_InitStruct->I2S_CPOL));  
+X  ((void)0);  
+N
+N/*----------------------- SPIx I2SCFGR & I2SPR Configuration -----------------*/
+N
+N  /* Clear I2SMOD, I2SE, I2SCFG, PCMSYNC, I2SSTD, CKPOL, DATLEN and CHLEN bits */
+N  SPIx->I2SCFGR &= I2SCFGR_CLEAR_Mask; 
+X  SPIx->I2SCFGR &= ((u16)0xF040); 
+N  SPIx->I2SPR = 0x0002;
+N  
+N  /* Get the I2SCFGR register value */
+N  tmpreg = SPIx->I2SCFGR;
+N  
+N  /* If the default value has to be written, reinitialize i2sdiv and i2sodd*/
+N  if(I2S_InitStruct->I2S_AudioFreq == I2S_AudioFreq_Default)
+X  if(I2S_InitStruct->I2S_AudioFreq == ((u16)2))
+N  {
+N    i2sodd = (u16)0;
+N    i2sdiv = (u16)2;   
+N  }
+N  /* If the requested audio frequency is not the default, compute the prescaler */
+N  else
+N  {
+N    /* Check the frame length (For the Prescaler computing) */
+N    if(I2S_InitStruct->I2S_DataFormat == I2S_DataFormat_16b)
+X    if(I2S_InitStruct->I2S_DataFormat == ((u16)0x0000))
+N    {
+N      /* Packet length is 16 bits */
+N      packetlength = 1;
+N    }
+N    else
+N    {
+N      /* Packet length is 32 bits */
+N      packetlength = 2;
+N    }
+N    /* Get System Clock frequency */
+N    RCC_GetClocksFreq(&RCC_Clocks);
+N    
+N    /* Compute the Real divider depending on the MCLK output state with a flaoting point */
+N    if(I2S_InitStruct->I2S_MCLKOutput == I2S_MCLKOutput_Enable)
+X    if(I2S_InitStruct->I2S_MCLKOutput == ((u16)0x0200))
+N    {
+N      /* MCLK output is enabled */
+N      tmp = (u16)(((10 * RCC_Clocks.SYSCLK_Frequency) / (256 * I2S_InitStruct->I2S_AudioFreq)) + 5);
+N    }
+N    else
+N    {
+N      /* MCLK output is disabled */
+N      tmp = (u16)(((10 * RCC_Clocks.SYSCLK_Frequency) / (32 * packetlength * I2S_InitStruct->I2S_AudioFreq)) + 5);
+N    }
+N    
+N    /* Remove the flaoting point */
+N    tmp = tmp/10;  
+N      
+N    /* Check the parity of the divider */
+N    i2sodd = (u16)(tmp & (u16)0x0001);
+N   
+N    /* Compute the i2sdiv prescaler */
+N    i2sdiv = (u16)((tmp - i2sodd) / 2);
+N   
+N    /* Get the Mask for the Odd bit (SPI_I2SPR[8]) register */
+N    i2sodd = (u16) (i2sodd << 8);
+N  }
+N  
+N  /* Test if the divider is 1 or 0 */
+N  if ((i2sdiv < 2) || (i2sdiv > 0xFF))
+N  {
+N    /* Set the default values */
+N    i2sdiv = 2;
+N    i2sodd = 0;
+N  }
+N
+N  /* Write to SPIx I2SPR register the computed value */
+N  SPIx->I2SPR = (u16)(i2sdiv | i2sodd | I2S_InitStruct->I2S_MCLKOutput);  
+N 
+N  /* Configure the I2S with the SPI_InitStruct values */
+N  tmpreg |= (u16)(I2S_Mode_Select | I2S_InitStruct->I2S_Mode | \
+N                  I2S_InitStruct->I2S_Standard | I2S_InitStruct->I2S_DataFormat | \
+N                  I2S_InitStruct->I2S_CPOL);
+X  tmpreg |= (u16)(((u16)0x0800) | I2S_InitStruct->I2S_Mode |                   I2S_InitStruct->I2S_Standard | I2S_InitStruct->I2S_DataFormat |                   I2S_InitStruct->I2S_CPOL);
+N 
+N  /* Write to SPIx I2SCFGR */  
+N  SPIx->I2SCFGR = tmpreg;                                    
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_StructInit
+N* Description    : Fills each SPI_InitStruct member with its default value.
+N* Input          : - SPI_InitStruct : pointer to a SPI_InitTypeDef structure
+N*                    which will be initialized.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_StructInit(SPI_InitTypeDef* SPI_InitStruct)
+N{
+N/*--------------- Reset SPI init structure parameters values -----------------*/
+N  /* Initialize the SPI_Direction member */
+N  SPI_InitStruct->SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+X  SPI_InitStruct->SPI_Direction = ((u16)0x0000);
+N
+N  /* initialize the SPI_Mode member */
+N  SPI_InitStruct->SPI_Mode = SPI_Mode_Slave;
+X  SPI_InitStruct->SPI_Mode = ((u16)0x0000);
+N
+N  /* initialize the SPI_DataSize member */
+N  SPI_InitStruct->SPI_DataSize = SPI_DataSize_8b;
+X  SPI_InitStruct->SPI_DataSize = ((u16)0x0000);
+N
+N  /* Initialize the SPI_CPOL member */
+N  SPI_InitStruct->SPI_CPOL = SPI_CPOL_Low;
+X  SPI_InitStruct->SPI_CPOL = ((u16)0x0000);
+N
+N  /* Initialize the SPI_CPHA member */
+N  SPI_InitStruct->SPI_CPHA = SPI_CPHA_1Edge;
+X  SPI_InitStruct->SPI_CPHA = ((u16)0x0000);
+N
+N  /* Initialize the SPI_NSS member */
+N  SPI_InitStruct->SPI_NSS = SPI_NSS_Hard;
+X  SPI_InitStruct->SPI_NSS = ((u16)0x0000);
+N
+N  /* Initialize the SPI_BaudRatePrescaler member */
+N  SPI_InitStruct->SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_2;
+X  SPI_InitStruct->SPI_BaudRatePrescaler = ((u16)0x0000);
+N
+N  /* Initialize the SPI_FirstBit member */
+N  SPI_InitStruct->SPI_FirstBit = SPI_FirstBit_MSB;
+X  SPI_InitStruct->SPI_FirstBit = ((u16)0x0000);
+N
+N  /* Initialize the SPI_CRCPolynomial member */
+N  SPI_InitStruct->SPI_CRCPolynomial = 7;
+N}
+N
+N/*******************************************************************************
+N* Function Name  : I2S_StructInit
+N* Description    : Fills each I2S_InitStruct member with its default value.
+N* Input          : - I2S_InitStruct : pointer to a I2S_InitTypeDef structure
+N*                    which will be initialized.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid I2S_StructInit(I2S_InitTypeDef* I2S_InitStruct)
+N{
+N/*--------------- Reset I2S init structure parameters values -----------------*/
+N  /* Initialize the I2S_Mode member */
+N  I2S_InitStruct->I2S_Mode = I2S_Mode_SlaveTx;
+X  I2S_InitStruct->I2S_Mode = ((u16)0x0000);
+N  
+N  /* Initialize the I2S_Standard member */
+N  I2S_InitStruct->I2S_Standard = I2S_Standard_Phillips;
+X  I2S_InitStruct->I2S_Standard = ((u16)0x0000);
+N  
+N  /* Initialize the I2S_DataFormat member */
+N  I2S_InitStruct->I2S_DataFormat = I2S_DataFormat_16b;
+X  I2S_InitStruct->I2S_DataFormat = ((u16)0x0000);
+N  
+N  /* Initialize the I2S_MCLKOutput member */
+N  I2S_InitStruct->I2S_MCLKOutput = I2S_MCLKOutput_Disable;
+X  I2S_InitStruct->I2S_MCLKOutput = ((u16)0x0000);
+N  
+N  /* Initialize the I2S_AudioFreq member */
+N  I2S_InitStruct->I2S_AudioFreq = I2S_AudioFreq_Default;
+X  I2S_InitStruct->I2S_AudioFreq = ((u16)2);
+N  
+N  /* Initialize the I2S_CPOL member */
+N  I2S_InitStruct->I2S_CPOL = I2S_CPOL_Low;
+X  I2S_InitStruct->I2S_CPOL = ((u16)0x0000);
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_Cmd
+N* Description    : Enables or disables the specified SPI peripheral.
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N*                  - NewState: new state of the SPIx peripheral. 
+N*                    This parameter can be: ENABLE or DISABLE.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_FUNCTIONAL_STATE(NewState));
+X  ((void)0);
+N
+N  if (NewState != DISABLE)
+N  {
+N    /* Enable the selected SPI peripheral */
+N    SPIx->CR1 |= CR1_SPE_Set;
+X    SPIx->CR1 |= ((u16)0x0040);
+N  }
+N  else
+N  {
+N    /* Disable the selected SPI peripheral */
+N    SPIx->CR1 &= CR1_SPE_Reset;
+X    SPIx->CR1 &= ((u16)0xFFBF);
+N  }
+N}
+N
+N/*******************************************************************************
+N* Function Name  : I2S_Cmd
+N* Description    : Enables or disables the specified SPI peripheral (in I2S mode).
+N* Input          : - SPIx: where x can be 2 or 3 to select the SPI peripheral.
+N*                  - NewState: new state of the SPIx peripheral. 
+N*                    This parameter can be: ENABLE or DISABLE.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid I2S_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_23_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_FUNCTIONAL_STATE(NewState));
+X  ((void)0);
+N
+N  if (NewState != DISABLE)
+N  {
+N    /* Enable the selected SPI peripheral (in I2S mode) */
+N    SPIx->I2SCFGR |= I2SCFGR_I2SE_Set;
+X    SPIx->I2SCFGR |= ((u16)0x0400);
+N  }
+N  else
+N  {
+N    /* Disable the selected SPI peripheral (in I2S mode) */
+N    SPIx->I2SCFGR &= I2SCFGR_I2SE_Reset;
+X    SPIx->I2SCFGR &= ((u16)0xFBFF);
+N  }
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_I2S_ITConfig
+N* Description    : Enables or disables the specified SPI/I2S interrupts.
+N* Input          : - SPIx: where x can be :
+N*                         - 1, 2 or 3 in SPI mode 
+N*                         - 2 or 3 in I2S mode
+N*                  - SPI_I2S_IT: specifies the SPI/I2S interrupt source to be 
+N*                    enabled or disabled. 
+N*                    This parameter can be one of the following values:
+N*                       - SPI_I2S_IT_TXE: Tx buffer empty interrupt mask
+N*                       - SPI_I2S_IT_RXNE: Rx buffer not empty interrupt mask
+N*                       - SPI_I2S_IT_ERR: Error interrupt mask
+N*                  - NewState: new state of the specified SPI/I2S interrupt.
+N*                    This parameter can be: ENABLE or DISABLE.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_I2S_ITConfig(SPI_TypeDef* SPIx, u8 SPI_I2S_IT, FunctionalState NewState)
+N{
+N  u16 itpos = 0, itmask = 0 ;
+N
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_FUNCTIONAL_STATE(NewState));
+X  ((void)0);
+N  assert_param(IS_SPI_I2S_CONFIG_IT(SPI_I2S_IT));
+X  ((void)0);
+N
+N  /* Get the SPI/I2S IT index */
+N  itpos = SPI_I2S_IT >> 4;
+N  /* Set the IT mask */
+N  itmask = (u16)((u16)1 << itpos);
+N
+N  if (NewState != DISABLE)
+N  {
+N    /* Enable the selected SPI/I2S interrupt */
+N    SPIx->CR2 |= itmask;
+N  }
+N  else
+N  {
+N    /* Disable the selected SPI/I2S interrupt */
+N    SPIx->CR2 &= (u16)~itmask;
+N  }
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_I2S_DMACmd
+N* Description    : Enables or disables the SPIx/I2Sx DMA interface.
+N* Input          : - SPIx: where x can be :
+N*                         - 1, 2 or 3 in SPI mode 
+N*                         - 2 or 3 in I2S mode
+N*                  - SPI_I2S_DMAReq: specifies the SPI/I2S DMA transfer request 
+N*                    to be enabled or disabled. 
+N*                    This parameter can be any combination of the following values:
+N*                       - SPI_I2S_DMAReq_Tx: Tx buffer DMA transfer request
+N*                       - SPI_I2S_DMAReq_Rx: Rx buffer DMA transfer request
+N*                  - NewState: new state of the selected SPI/I2S DMA transfer 
+N*                    request.
+N*                    This parameter can be: ENABLE or DISABLE.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_I2S_DMACmd(SPI_TypeDef* SPIx, u16 SPI_I2S_DMAReq, FunctionalState NewState)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_FUNCTIONAL_STATE(NewState));
+X  ((void)0);
+N  assert_param(IS_SPI_I2S_DMAREQ(SPI_I2S_DMAReq));
+X  ((void)0);
+N
+N  if (NewState != DISABLE)
+N  {
+N    /* Enable the selected SPI/I2S DMA requests */
+N    SPIx->CR2 |= SPI_I2S_DMAReq;
+N  }
+N  else
+N  {
+N    /* Disable the selected SPI/I2S DMA requests */
+N    SPIx->CR2 &= (u16)~SPI_I2S_DMAReq;
+N  }
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_I2S_SendData
+N* Description    : Transmits a Data through the SPIx/I2Sx peripheral.
+N* Input          : - SPIx: where x can be :
+N*                         - 1, 2 or 3 in SPI mode 
+N*                         - 2 or 3 in I2S mode
+N*                  - Data : Data to be transmitted..
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_I2S_SendData(SPI_TypeDef* SPIx, u16 Data)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  
+N  /* Write in the DR register the data to be sent */
+N  SPIx->DR = Data;
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_I2S_ReceiveData
+N* Description    : Returns the most recent received data by the SPIx/I2Sx peripheral. 
+N* Input          : - SPIx: where x can be :
+N*                         - 1, 2 or 3 in SPI mode 
+N*                         - 2 or 3 in I2S mode
+N* Output         : None
+N* Return         : The value of the received data.
+N*******************************************************************************/
+Nu16 SPI_I2S_ReceiveData(SPI_TypeDef* SPIx)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  
+N  /* Return the data in the DR register */
+N  return SPIx->DR;
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_NSSInternalSoftwareConfig
+N* Description    : Configures internally by software the NSS pin for the selected 
+N*                  SPI.
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N*                  - SPI_NSSInternalSoft: specifies the SPI NSS internal state.
+N*                    This parameter can be one of the following values:
+N*                       - SPI_NSSInternalSoft_Set: Set NSS pin internally
+N*                       - SPI_NSSInternalSoft_Reset: Reset NSS pin internally
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_NSSInternalSoftwareConfig(SPI_TypeDef* SPIx, u16 SPI_NSSInternalSoft)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_SPI_NSS_INTERNAL(SPI_NSSInternalSoft));
+X  ((void)0);
+N
+N  if (SPI_NSSInternalSoft != SPI_NSSInternalSoft_Reset)
+X  if (SPI_NSSInternalSoft != ((u16)0xFEFF))
+N  {
+N    /* Set NSS pin internally by software */
+N    SPIx->CR1 |= SPI_NSSInternalSoft_Set;
+X    SPIx->CR1 |= ((u16)0x0100);
+N  }
+N  else
+N  {
+N    /* Reset NSS pin internally by software */
+N    SPIx->CR1 &= SPI_NSSInternalSoft_Reset;
+X    SPIx->CR1 &= ((u16)0xFEFF);
+N  }
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_SSOutputCmd
+N* Description    : Enables or disables the SS output for the selected SPI.
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N*                  - NewState: new state of the SPIx SS output. 
+N*                    This parameter can be: ENABLE or DISABLE.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_SSOutputCmd(SPI_TypeDef* SPIx, FunctionalState NewState)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_FUNCTIONAL_STATE(NewState));
+X  ((void)0);
+N
+N  if (NewState != DISABLE)
+N  {
+N    /* Enable the selected SPI SS output */
+N    SPIx->CR2 |= CR2_SSOE_Set;
+X    SPIx->CR2 |= ((u16)0x0004);
+N  }
+N  else
+N  {
+N    /* Disable the selected SPI SS output */
+N    SPIx->CR2 &= CR2_SSOE_Reset;
+X    SPIx->CR2 &= ((u16)0xFFFB);
+N  }
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_DataSizeConfig
+N* Description    : Configures the data size for the selected SPI.
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N*                  - SPI_DataSize: specifies the SPI data size.
+N*                    This parameter can be one of the following values:
+N*                       - SPI_DataSize_16b: Set data frame format to 16bit
+N*                       - SPI_DataSize_8b: Set data frame format to 8bit
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_DataSizeConfig(SPI_TypeDef* SPIx, u16 SPI_DataSize)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_SPI_DATASIZE(SPI_DataSize));
+X  ((void)0);
+N
+N  /* Clear DFF bit */
+N  SPIx->CR1 &= (u16)~SPI_DataSize_16b;
+X  SPIx->CR1 &= (u16)~((u16)0x0800);
+N  /* Set new DFF bit value */
+N  SPIx->CR1 |= SPI_DataSize;
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_TransmitCRC
+N* Description    : Transmit the SPIx CRC value.
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_TransmitCRC(SPI_TypeDef* SPIx)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  
+N  /* Enable the selected SPI CRC transmission */
+N  SPIx->CR1 |= CR1_CRCNext_Set;
+X  SPIx->CR1 |= ((u16)0x1000);
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_CalculateCRC
+N* Description    : Enables or disables the CRC value calculation of the
+N*                  transfered bytes.
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N*                  - NewState: new state of the SPIx CRC value calculation.
+N*                    This parameter can be: ENABLE or DISABLE.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_CalculateCRC(SPI_TypeDef* SPIx, FunctionalState NewState)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_FUNCTIONAL_STATE(NewState));
+X  ((void)0);
+N
+N  if (NewState != DISABLE)
+N  {
+N    /* Enable the selected SPI CRC calculation */
+N    SPIx->CR1 |= CR1_CRCEN_Set;
+X    SPIx->CR1 |= ((u16)0x2000);
+N  }
+N  else
+N  {
+N    /* Disable the selected SPI CRC calculation */
+N    SPIx->CR1 &= CR1_CRCEN_Reset;
+X    SPIx->CR1 &= ((u16)0xDFFF);
+N  }
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_GetCRC
+N* Description    : Returns the transmit or the receive CRC register value for
+N*                  the specified SPI.
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N*                  - SPI_CRC: specifies the CRC register to be read.
+N*                    This parameter can be one of the following values:
+N*                       - SPI_CRC_Tx: Selects Tx CRC register
+N*                       - SPI_CRC_Rx: Selects Rx CRC register
+N* Output         : None
+N* Return         : The selected CRC register value..
+N*******************************************************************************/
+Nu16 SPI_GetCRC(SPI_TypeDef* SPIx, u8 SPI_CRC)
+N{
+N  u16 crcreg = 0;
+N
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_SPI_CRC(SPI_CRC));
+X  ((void)0);
+N
+N  if (SPI_CRC != SPI_CRC_Rx)
+X  if (SPI_CRC != ((u8)0x01))
+N  {
+N    /* Get the Tx CRC register */
+N    crcreg = SPIx->TXCRCR;
+N  }
+N  else
+N  {
+N    /* Get the Rx CRC register */
+N    crcreg = SPIx->RXCRCR;
+N  }
+N
+N  /* Return the selected CRC register */
+N  return crcreg;
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_GetCRCPolynomial
+N* Description    : Returns the CRC Polynomial register value for the specified SPI.
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N* Output         : None
+N* Return         : The CRC Polynomial register value.
+N*******************************************************************************/
+Nu16 SPI_GetCRCPolynomial(SPI_TypeDef* SPIx)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  
+N  /* Return the CRC polynomial register */
+N  return SPIx->CRCPR;
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_BiDirectionalLineConfig
+N* Description    : Selects the data transfer direction in bi-directional mode
+N*                  for the specified SPI.
+N* Input          : - SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+N*                  - SPI_Direction: specifies the data transfer direction in
+N*                    bi-directional mode. 
+N*                    This parameter can be one of the following values:
+N*                       - SPI_Direction_Tx: Selects Tx transmission direction
+N*                       - SPI_Direction_Rx: Selects Rx receive direction
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_BiDirectionalLineConfig(SPI_TypeDef* SPIx, u16 SPI_Direction)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_SPI_DIRECTION(SPI_Direction));
+X  ((void)0);
+N
+N  if (SPI_Direction == SPI_Direction_Tx)
+X  if (SPI_Direction == ((u16)0x4000))
+N  {
+N    /* Set the Tx only mode */
+N    SPIx->CR1 |= SPI_Direction_Tx;
+X    SPIx->CR1 |= ((u16)0x4000);
+N  }
+N  else
+N  {
+N    /* Set the Rx only mode */
+N    SPIx->CR1 &= SPI_Direction_Rx;
+X    SPIx->CR1 &= ((u16)0xBFFF);
+N  }
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_I2S_GetFlagStatus
+N* Description    : Checks whether the specified SPI/I2S flag is set or not.
+N* Input          : - SPIx: where x can be :
+N*                         - 1, 2 or 3 in SPI mode 
+N*                         - 2 or 3 in I2S mode
+N*                  - SPI_I2S_FLAG: specifies the SPI/I2S flag to check. 
+N*                    This parameter can be one of the following values:
+N*                       - SPI_I2S_FLAG_TXE: Transmit buffer empty flag.
+N*                       - SPI_I2S_FLAG_RXNE: Receive buffer not empty flag.
+N*                       - SPI_I2S_FLAG_BSY: Busy flag.
+N*                       - SPI_I2S_FLAG_OVR: Overrun flag.
+N*                       - SPI_FLAG_MODF: Mode Fault flag.
+N*                       - SPI_FLAG_CRCERR: CRC Error flag.
+N*                       - I2S_FLAG_UDR: Underrun Error flag.
+N*                       - I2S_FLAG_CHSIDE: Channel Side flag.
+N* Output         : None
+N* Return         : The new state of SPI_I2S_FLAG (SET or RESET).
+N*******************************************************************************/
+NFlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, u16 SPI_I2S_FLAG)
+N{
+N  FlagStatus bitstatus = RESET;
+N
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_SPI_I2S_GET_FLAG(SPI_I2S_FLAG));
+X  ((void)0);
+N
+N  /* Check the status of the specified SPI/I2S flag */
+N  if ((SPIx->SR & SPI_I2S_FLAG) != (u16)RESET)
+N  {
+N    /* SPI_I2S_FLAG is set */
+N    bitstatus = SET;
+N  }
+N  else
+N  {
+N    /* SPI_I2S_FLAG is reset */
+N    bitstatus = RESET;
+N  }
+N  /* Return the SPI_I2S_FLAG status */
+N  return  bitstatus;
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_I2S_ClearFlag
+N* Description    : Clears the SPIx/I2Sx pending flags.
+N* Input          : - SPIx: where x can be :
+N*                         - 1, 2 or 3 in SPI mode 
+N*                         - 2 or 3 in I2S mode
+N*                  - SPI_I2S_FLAG: specifies the SPI/I2S flag to clear. 
+N*                    This parameter can be one of the following values:
+N*                       - SPI_I2S_FLAG_OVR: Overrun flag 
+N*                       - SPI_FLAG_MODF: Mode Fault flag.
+N*                       - SPI_FLAG_CRCERR: CRC Error flag.
+N*                       - I2S_FLAG_UDR: Underrun Error flag.
+N*                    Note: Before clearing OVR flag, it is mandatory to read 
+N*                          SPI_I2S_DR register, so that the last data is not lost.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, u16 SPI_I2S_FLAG)
+N{
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_SPI_I2S_CLEAR_FLAG(SPI_I2S_FLAG));
+X  ((void)0);
+N    
+N  /* SPI_FLAG_MODF flag clear */
+N  if(SPI_I2S_FLAG == SPI_FLAG_MODF)
+X  if(SPI_I2S_FLAG == ((u16)0x0020))
+N  {
+N    /* Read SR register */
+N    (void)SPIx->SR;
+N    
+N    /* Write on CR1 register */
+N    SPIx->CR1 |= CR1_SPE_Set; 
+X    SPIx->CR1 |= ((u16)0x0040); 
+N  }
+N  /* SPI_I2S_FLAG_OVR flag or I2S_FLAG_UDR flag clear */
+N  else if ((SPI_I2S_FLAG == SPI_I2S_FLAG_OVR) || (SPI_I2S_FLAG == I2S_FLAG_UDR))  
+X  else if ((SPI_I2S_FLAG == ((u16)0x0040)) || (SPI_I2S_FLAG == ((u16)0x0008)))  
+N  {
+N    /* Read SR register  (Before clearing OVR flag, it is mandatory to read 
+N       SPI_I2S_DR register)*/
+N    (void)SPIx->SR;
+N  }
+N  else /* SPI_FLAG_CRCERR flag clear */
+N  {
+N    /* Clear the selected SPI flag */
+N    SPIx->SR = (u16)~SPI_I2S_FLAG;
+N  }
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_I2S_GetITStatus
+N* Description    : Checks whether the specified SPI/I2S interrupt has occurred or not.
+N* Input          : - SPIx: where x can be :
+N*                         - 1, 2 or 3 in SPI mode 
+N*                         - 2 or 3 in I2S mode
+N*                  - SPI_I2S_IT: specifies the SPI/I2S interrupt source to check. 
+N*                    This parameter can be one of the following values:
+N*                       - SPI_I2S_IT_TXE: Transmit buffer empty interrupt.
+N*                       - SPI_I2S_IT_RXNE: Receive buffer not empty interrupt.
+N*                       - SPI_I2S_IT_OVR: Overrun interrupt.
+N*                       - SPI_IT_MODF: Mode Fault interrupt.
+N*                       - SPI_IT_CRCERR: CRC Error interrupt.
+N*                       - I2S_IT_UDR: Underrun Error interrupt.
+N* Output         : None
+N* Return         : The new state of SPI_I2S_IT (SET or RESET).
+N*******************************************************************************/
+NITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, u8 SPI_I2S_IT)
+N{
+N  ITStatus bitstatus = RESET;
+N  u16 itpos = 0, itmask = 0, enablestatus = 0;
+N
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_SPI_I2S_GET_IT(SPI_I2S_IT));
+X  ((void)0);
+N
+N  /* Get the SPI/I2S IT index */
+N  itpos = (u16)((u16)0x01 << (SPI_I2S_IT & (u8)0x0F));
+N
+N  /* Get the SPI/I2S IT mask */
+N  itmask = SPI_I2S_IT >> 4;
+N  /* Set the IT mask */
+N  itmask = (u16)((u16)0x01 << itmask);
+N  /* Get the SPI_I2S_IT enable bit status */
+N  enablestatus = (SPIx->CR2 & itmask) ;
+N
+N  /* Check the status of the specified SPI/I2S interrupt */
+N  if (((SPIx->SR & itpos) != (u16)RESET) && enablestatus)
+N  {
+N    /* SPI_I2S_IT is set */
+N    bitstatus = SET;
+N  }
+N  else
+N  {
+N    /* SPI_I2S_IT is reset */
+N    bitstatus = RESET;
+N  }
+N  /* Return the SPI_I2S_IT status */
+N  return bitstatus;
+N}
+N
+N/*******************************************************************************
+N* Function Name  : SPI_I2S_ClearITPendingBit
+N* Description    : Clears the SPIx/I2Sx interrupt pending bits.
+N* Input          : - SPIx: where x can be :
+N*                         - 1, 2 or 3 in SPI mode 
+N*                         - 2 or 3 in I2S mode
+N*                  - SPI_I2S_IT: specifies the SPI/I2S interrupt pending bit to clear.
+N*                    This parameter can be one of the following values:
+N*                       - SPI_I2S_IT_OVR: Overrun interrupt.
+N*                       - SPI_IT_MODF: Mode Fault interrupt.
+N*                       - SPI_IT_CRCERR: CRC Error interrupt.
+N*                       - I2S_IT_UDR: Underrun Error interrupt.
+N* Output         : None
+N* Return         : None
+N*******************************************************************************/
+Nvoid SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, u8 SPI_I2S_IT)
+N{
+N  u16 itpos = 0;
+N
+N  /* Check the parameters */
+N  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+X  ((void)0);
+N  assert_param(IS_SPI_I2S_CLEAR_IT(SPI_I2S_IT));
+X  ((void)0);
+N
+N  /* SPI_IT_MODF pending bit clear */
+N  if(SPI_I2S_IT == SPI_IT_MODF)
+X  if(SPI_I2S_IT == ((u8)0x55))
+N  {
+N    /* Read SR register */
+N    (void)SPIx->SR;
+N    /* Write on CR1 register */
+N    SPIx->CR1 |= CR1_SPE_Set; 
+X    SPIx->CR1 |= ((u16)0x0040); 
+N  }
+N  /* SPI_I2S_IT_OVR or I2S_IT_UDR pending bit clear */ 
+N  else if((SPI_I2S_IT == SPI_I2S_IT_OVR) || (SPI_I2S_IT == I2S_IT_UDR))    
+X  else if((SPI_I2S_IT == ((u8)0x56)) || (SPI_I2S_IT == ((u8)0x53)))    
+N  {
+N    /* Read SR register */
+N    (void)(SPIx->SR);
+N  }  
+N  else   /* SPI_IT_CRCERR pending bit clear */
+N  {
+N    /* Get the SPI/I2S IT index */
+N    itpos = (u16)((u16)0x01 << (SPI_I2S_IT & (u8)0x0F));
+N    /* Clear the selected SPI/I2S interrupt pending bits */
+N    SPIx->SR = (u16)~itpos;
+N  }
+N}
+N
+N/******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/

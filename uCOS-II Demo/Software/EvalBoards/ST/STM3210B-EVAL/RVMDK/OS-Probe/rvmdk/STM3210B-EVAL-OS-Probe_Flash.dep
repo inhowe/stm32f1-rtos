@@ -1,0 +1,485 @@
+Dependencies for Project 'STM3210B-EVAL-OS-Probe', Target 'Flash': (DO NOT MODIFY !)
+F (.\app.c)(0x5D3AFCFD)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\app.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\app.crf --depend .\rvmdk\app.d)
+I (.\includes.h)(0x48ADFAC2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\ctype.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5CEB79E4)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)
+I (..\..\..\..\..\uC-LIB\lib_str.h)(0x4897B908)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\errno.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\limits.h)(0x5CEB79D6)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_lib.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_adc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_bkp.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_exti.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_flash.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_gpio.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_i2c.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_nvic.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_pwr.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rtc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_systick.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_tim.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_usart.h)(0x4897D546)
+I (..\BSP\lcd.h)(0x48ADFACA)
+I (..\BSP\bsp.h)(0x48AE5556)
+I (..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II\os_probe.h)(0x48A13094)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source\probe_com.h)(0x48AD1CFE)
+I (.\probe_com_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source\probe_rs232.h)(0x48AD1CCE)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32\probe_rs232c.h)(0x487D4D2C)
+F (.\app_cfg.h)(0x5D3AFC5B)()
+F (.\includes.h)(0x48ADFAC2)()
+F (.\os_cfg.h)(0x48ADFACA)()
+F (.\vectors.s)(0x48BDC942)(--cpu Cortex-M3 -g --16 --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"--pd "__UVISION_VERSION SETA 528" --pd "STM32F10X_MD SETA 1"--list .\rvmdk\vectors.lst --xref -o .\rvmdk\vectors.o --depend .\rvmdk\vectors.d)
+F (.\probe_com_cfg.h)(0x48ADFACA)()
+F (.\stm32f10x_conf.h)(0x48ADFACA)()
+F (..\BSP\bsp.c)(0x5D122CD5)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\bsp.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\bsp.crf --depend .\rvmdk\bsp.d)
+I (..\BSP\bsp.h)(0x48AE5556)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (..\..\..\..\..\uC-LIB\lib_str.h)(0x4897B908)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\ctype.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\errno.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\limits.h)(0x5CEB79D6)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_lib.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_adc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_bkp.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_exti.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_flash.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_gpio.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_i2c.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_nvic.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_pwr.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rtc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_systick.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_tim.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_usart.h)(0x4897D546)
+I (..\BSP\lcd.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+I (..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II\os_probe.h)(0x48A13094)
+F (..\BSP\bsp.h)(0x48AE5556)()
+F (..\BSP\lcd.h)(0x48ADFACA)()
+F (..\BSP\fonts.h)(0x48BDD7D2)()
+F (..\BSP\lcd.c)(0x48ADFACA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\lcd.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\lcd.crf --depend .\rvmdk\lcd.d)
+I (..\BSP\fonts.h)(0x48BDD7D2)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_lib.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_adc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_bkp.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_exti.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_flash.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_gpio.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_i2c.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_nvic.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_pwr.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rtc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_systick.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_tim.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_usart.h)(0x4897D546)
+I (..\BSP\lcd.h)(0x48ADFACA)
+F (..\BSP\init.s)(0x48ADFAC8)(--cpu Cortex-M3 -g --16 --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"--pd "__UVISION_VERSION SETA 528" --pd "STM32F10X_MD SETA 1"--list .\rvmdk\init.lst --xref -o .\rvmdk\init.o --depend .\rvmdk\init.d)
+F (..\BSP\bsp_int.c)(0x48BDD3CC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\bsp_int.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\bsp_int.crf --depend .\rvmdk\bsp_int.d)
+I (..\BSP\bsp.h)(0x48AE5556)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (..\..\..\..\..\uC-LIB\lib_str.h)(0x4897B908)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\ctype.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\errno.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\limits.h)(0x5CEB79D6)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_lib.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_adc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_bkp.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_exti.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_flash.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_gpio.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_i2c.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_nvic.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_pwr.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rtc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_systick.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_tim.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_usart.h)(0x4897D546)
+I (..\BSP\lcd.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+I (..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II\os_probe.h)(0x48A13094)
+F (..\BSP\bsp_periph.c)(0x48BDD3CA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\bsp_periph.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\bsp_periph.crf --depend .\rvmdk\bsp_periph.d)
+I (..\BSP\bsp.h)(0x48AE5556)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (..\..\..\..\..\uC-LIB\lib_str.h)(0x4897B908)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\ctype.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\errno.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\limits.h)(0x5CEB79D6)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_lib.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_adc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_bkp.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_exti.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_flash.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_gpio.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_i2c.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_nvic.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_pwr.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rtc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_systick.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_tim.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_usart.h)(0x4897D546)
+I (..\BSP\lcd.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+I (..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II\os_probe.h)(0x48A13094)
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_systick.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_systick.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_systick.crf --depend .\rvmdk\stm32f10x_systick.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_systick.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_i2c.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_i2c.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_i2c.crf --depend .\rvmdk\stm32f10x_i2c.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_i2c.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_spi.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_spi.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_spi.crf --depend .\rvmdk\stm32f10x_spi.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_rtc.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_rtc.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_rtc.crf --depend .\rvmdk\stm32f10x_rtc.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rtc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_gpio.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_lib.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_flash.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_i2c.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_pwr.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rtc.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_systick.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_tim.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_usart.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_rcc.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_rcc.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_rcc.crf --depend .\rvmdk\stm32f10x_rcc.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_adc.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_bkp.h)(0x4897D546)()
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_adc.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_adc.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_adc.crf --depend .\rvmdk\stm32f10x_adc.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_adc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_bkp.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_bkp.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_bkp.crf --depend .\rvmdk\stm32f10x_bkp.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_bkp.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_flash.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_flash.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_flash.crf --depend .\rvmdk\stm32f10x_flash.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_flash.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_gpio.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_gpio.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_gpio.crf --depend .\rvmdk\stm32f10x_gpio.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_gpio.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_usart.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_usart.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_usart.crf --depend .\rvmdk\stm32f10x_usart.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_usart.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_lib.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_lib.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_lib.crf --depend .\rvmdk\stm32f10x_lib.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_lib.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_adc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_bkp.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_exti.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_flash.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_gpio.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_i2c.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_nvic.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_pwr.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rtc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_systick.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_tim.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_usart.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\src\stm32f10x_tim.c)(0x4897D554)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\stm32f10x_tim.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\stm32f10x_tim.crf --depend .\rvmdk\stm32f10x_tim.d)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_tim.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+F (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)()
+F (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)()
+F (..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu.h)(0x48BDC44E)()
+F (..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu_a.asm)(0x48BDC944)(--cpu Cortex-M3 -g --16 --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"--pd "__UVISION_VERSION SETA 528" --pd "STM32F10X_MD SETA 1"--list .\rvmdk\cpu_a.lst --xref -o .\rvmdk\cpu_a.o --depend .\rvmdk\cpu_a.d)
+F (..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu_c.c)(0x48BDC4FE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\cpu_c.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\cpu_c.crf --depend .\rvmdk\cpu_c.d)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+F (..\..\..\..\..\uCOS-II\Source\os_core.c)(0x486309CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_core.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_core.crf --depend .\rvmdk\os_core.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Source\os_flag.c)(0x486309CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_flag.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_flag.crf --depend .\rvmdk\os_flag.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Source\os_mbox.c)(0x486309CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_mbox.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_mbox.crf --depend .\rvmdk\os_mbox.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Source\os_mem.c)(0x486309CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_mem.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_mem.crf --depend .\rvmdk\os_mem.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Source\os_mutex.c)(0x486309CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_mutex.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_mutex.crf --depend .\rvmdk\os_mutex.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Source\os_q.c)(0x486309CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_q.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_q.crf --depend .\rvmdk\os_q.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Source\os_sem.c)(0x486309CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_sem.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_sem.crf --depend .\rvmdk\os_sem.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Source\os_task.c)(0x486309CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_task.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_task.crf --depend .\rvmdk\os_task.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Source\os_time.c)(0x486309CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_time.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_time.crf --depend .\rvmdk\os_time.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Source\os_tmr.c)(0x486309CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_tmr.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_tmr.crf --depend .\rvmdk\os_tmr.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Ports\ARM-Cortex-M3\Generic\RealView\os_cpu.h)(0x483F2548)()
+F (..\..\..\..\..\uCOS-II\Ports\ARM-Cortex-M3\Generic\RealView\os_cpu_a.asm)(0x48AE0D28)(--cpu Cortex-M3 -g --16 --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"--pd "__UVISION_VERSION SETA 528" --pd "STM32F10X_MD SETA 1"--list .\rvmdk\os_cpu_a.lst --xref -o .\rvmdk\os_cpu_a.o --depend .\rvmdk\os_cpu_a.d)
+F (..\..\..\..\..\uCOS-II\Ports\ARM-Cortex-M3\Generic\RealView\os_cpu_c.c)(0x483F2544)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_cpu_c.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_cpu_c.crf --depend .\rvmdk\os_cpu_c.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uCOS-II\Ports\ARM-Cortex-M3\Generic\RealView\os_dbg.c)(0x483F2546)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_dbg.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_dbg.crf --depend .\rvmdk\os_dbg.d)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)()
+F (..\..\..\..\..\uC-LIB\lib_mem.c)(0x48830C2C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\lib_mem.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\lib_mem.crf --depend .\rvmdk\lib_mem.d)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (.\app_cfg.h)(0x5D3AFC5B)
+F (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)()
+F (..\..\..\..\..\uC-LIB\lib_str.c)(0x48645D80)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\lib_str.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\lib_str.crf --depend .\rvmdk\lib_str.d)
+I (..\..\..\..\..\uC-LIB\lib_str.h)(0x4897B908)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\ctype.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\errno.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\limits.h)(0x5CEB79D6)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+F (..\..\..\..\..\uC-LIB\lib_str.h)(0x4897B908)()
+F (..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView\lib_mem_a.asm)(0x48B738E4)(--cpu Cortex-M3 -g --16 --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"--pd "__UVISION_VERSION SETA 528" --pd "STM32F10X_MD SETA 1"--list .\rvmdk\lib_mem_a.lst --xref -o .\rvmdk\lib_mem_a.o --depend .\rvmdk\lib_mem_a.d)
+F (..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II\os_probe.h)(0x48A13094)()
+F (..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II\os_probe.c)(0x48A0E910)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\os_probe.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\os_probe.crf --depend .\rvmdk\os_probe.d)
+I (..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II\os_probe.h)(0x48A13094)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source\probe_com.c)(0x48AD1CFE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\probe_com.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\probe_com.crf --depend .\rvmdk\probe_com.d)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source\probe_com.h)(0x48AD1CFE)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\probe_com_cfg.h)(0x48ADFACA)
+F (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source\probe_rs232.h)(0x48AD1CCE)()
+F (..\..\..\..\..\uC-Probe\Target\Communication\Generic\OS\uCOS-II\probe_com_os.c)(0x48AD1CEE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\probe_com_os.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\probe_com_os.crf --depend .\rvmdk\probe_com_os.d)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source\probe_com.h)(0x48AD1CFE)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\probe_com_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32\probe_rs232c.c)(0x48AD1E98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\probe_rs232c.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\probe_rs232c.crf --depend .\rvmdk\probe_rs232c.d)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source\probe_rs232.h)(0x48AD1CCE)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source\probe_com.h)(0x48AD1CFE)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\probe_com_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32\probe_rs232c.h)(0x487D4D2C)
+I (.\includes.h)(0x48ADFAC2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\ctype.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5CEB79E4)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+I (..\..\..\..\..\uC-LIB\lib_str.h)(0x4897B908)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\errno.h)(0x5CEB79E4)
+I (C:\Program Files\0Software\Keil_v5\ARM\ARMCC\include\limits.h)(0x5CEB79D6)
+I (.\stm32f10x_conf.h)(0x48ADFACA)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_type.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_lib.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_map.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\cortexm3_macro.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_adc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_bkp.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_exti.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_flash.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_gpio.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_i2c.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_nvic.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_pwr.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rcc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_rtc.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_spi.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_systick.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_tim.h)(0x4897D546)
+I (..\..\..\..\..\CPU\ST\STM32\inc\stm32f10x_usart.h)(0x4897D546)
+I (..\BSP\lcd.h)(0x48ADFACA)
+I (..\BSP\bsp.h)(0x48AE5556)
+I (..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II\os_probe.h)(0x48A13094)
+F (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32\probe_rs232c.h)(0x487D4D2C)()
+F (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\OS\uCOS-II\probe_rs232_os.c)(0x48AD1CDC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\probe_rs232_os.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\probe_rs232_os.crf --depend .\rvmdk\probe_rs232_os.d)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source\probe_com.h)(0x48AD1CFE)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\probe_com_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source\probe_rs232.h)(0x48AD1CCE)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32\probe_rs232c.h)(0x487D4D2C)
+I (..\..\..\..\..\uCOS-II\Source\ucos_ii.h)(0x486309CE)
+I (.\os_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h)(0x483F2548)
+F (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source\probe_rs232.c)(0x48AD1CCE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O1 -Otime --apcs=interwork --asm --interleave --asm_dir ".\\rvmdk\\" -I . -I ..\BSP -I ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView -I ..\..\..\..\..\uCOS-II\Source -I ..\..\..\..\..\CPU\ST\STM32\inc -I ..\..\..\..\..\uC-CPU -I ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView -I ..\..\..\..\..\uC-LIB -I ..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32 -I ..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source-I.\RTE\_Flash-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Program Files\0Software\Keil_v5\ARM\CMSIS\Include"-I"C:\Program Files\0Software\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0"-D__UVISION_VERSION="528" -DSTM32F10X_MD-o .\rvmdk\probe_rs232.o --list_dir ".\\rvmdk\\" --list --omf_browse .\rvmdk\probe_rs232.crf --depend .\rvmdk\probe_rs232.d)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source\probe_com.h)(0x48AD1CFE)
+I (..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h)(0x48BDC44E)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x4897CFFA)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x487EE2C8)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x48830C2C)
+I (.\app_cfg.h)(0x5D3AFC5B)
+I (.\probe_com_cfg.h)(0x48ADFACA)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source\probe_rs232.h)(0x48AD1CCE)
+I (..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32\probe_rs232c.h)(0x487D4D2C)
+F (..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source\probe_com.h)(0x48AD1CFE)()
+F (..\BSP\STM32_Flash.scat)(0x48ADFAC8)()
+F (..\BSP\STM32_RAM.scat)(0x48ADFACA)()

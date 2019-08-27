@@ -1,0 +1,11 @@
+.\rvmdk\probe_com_os.o: ..\..\..\..\..\uC-Probe\Target\Communication\Generic\OS\uCOS-II\probe_com_os.c
+.\rvmdk\probe_com_os.o: ..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source\probe_com.h
+.\rvmdk\probe_com_os.o: ..\..\..\..\..\uC-CPU\Arm-Cortex-M3\RealView\cpu.h
+.\rvmdk\probe_com_os.o: ..\..\..\..\..\uC-CPU\cpu_def.h
+.\rvmdk\probe_com_os.o: ..\..\..\..\..\uC-LIB\lib_def.h
+.\rvmdk\probe_com_os.o: ..\..\..\..\..\uC-LIB\lib_mem.h
+.\rvmdk\probe_com_os.o: .\app_cfg.h
+.\rvmdk\probe_com_os.o: .\probe_com_cfg.h
+.\rvmdk\probe_com_os.o: ..\..\..\..\..\uCOS-II\Source\ucos_ii.h
+.\rvmdk\probe_com_os.o: .\os_cfg.h
+.\rvmdk\probe_com_os.o: ..\..\..\..\..\uCOS-II\Ports\arm-cortex-m3\Generic\RealView\os_cpu.h
