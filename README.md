@@ -1,5 +1,5 @@
 # PLEASE GIVE ME STAR
-stm32f1系列的操作系统
+stm32f1系列的操作系统，请给我星星呀~
 ## os - pendSV - f1
 简单的上下文切换器
 ## os - basic - f1
