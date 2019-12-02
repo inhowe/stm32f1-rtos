@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+  ],
+  "settings": {
+    "files.associations": {
+      "stm32f10x.h": "c",
+      "stm32f10x_conf.h": "c",
+      "bsp_led.h": "c",
+      "peripheral.h": "c"
+    }
+  }
+}
