@@ -23,7 +23,7 @@
   这种越界访问导致工作异常，而如果task1栈空间不够的话也会越界，但不会影响到task2的栈，
 	如果task1的栈地址前面的内存空间恰好没人使用，依然是正常工作的
 */
-//思考4：屏蔽task1的延时后，为什么task2灯是长短闪而不是单闪？
+//思考4：屏蔽task1的延时后，为什么task2灯是长短闪而不是单闪？（请把printf函数屏蔽掉）
 /*
 	这原因就是临界区的问题，翻转IO不是原子操作，在while循环下大概率会在翻转过程进行一半的时候发生切换。
 	在反转IO前后分别关闭总中断和开启总中断可以解决问题，试试解除进出临界区的语句
@@ -96,8 +96,8 @@ void task1(void* para)
 	while(1)
 	{
 //		OS_ENTER_CRITICAL();
-//		LED1_TOGGLE;
-    printf("123");
+		LED1_TOGGLE;
+//    printf("123"); 
 //		OS_EXIT_CRITICAL();
 //		delay(200);
 	}
@@ -111,8 +111,8 @@ void task2(void* para)
 	while(1)
 	{
 //		OS_ENTER_CRITICAL();
-//		LED2_TOGGLE;
-    printf("abc");
+		LED2_TOGGLE;
+//    printf("abc");
 //		OS_EXIT_CRITICAL();
 		delay(250);
 	}

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\easyScheduler.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\easyScheduler.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Oct 14 21:31:37 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Dec 08 20:39:39 2019
 <BR><P>
 <H3>Maximum Stack Usage =         92 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -103,7 +103,7 @@ Function Pointers
  <LI><a href="#[49]">fputc</a> from peripheral.o(.text) referenced from printfb.o(i.__0printf$bare)
  <LI><a href="#[46]">main</a> from main.o(.text) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
  <LI><a href="#[57]">task1</a> from main.o(.text) referenced from main.o(.text)
- <LI><a href="#[59]">task2</a> from main.o(.text) referenced from main.o(.text)
+ <LI><a href="#[5a]">task2</a> from main.o(.text) referenced from main.o(.text)
 </UL>
 <P>
 <H3>
@@ -529,22 +529,26 @@ Global Symbols
 
 <P><STRONG><a name="[b1]"></a>USART_ClearITPendingBit</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[5a]"></a>delay</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, main.o(.text))
+<P><STRONG><a name="[59]"></a>delay</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;task2
+<BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;task2
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;task1
 </UL>
 
-<P><STRONG><a name="[57]"></a>task1</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<P><STRONG><a name="[57]"></a>task1</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = task1 &rArr; delay
+</UL>
+<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
 </UL>
-<P><STRONG><a name="[59]"></a>task2</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(.text))
+<P><STRONG><a name="[5a]"></a>task2</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = task2 &rArr; delay
 </UL>
 <BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
 </UL>
@@ -669,7 +673,7 @@ Global Symbols
 <P><STRONG><a name="[b5]"></a>__1printf$bare</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare), UNUSED)
 
 <P><STRONG><a name="[58]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare))
-<BR><BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;task2
+<BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;task2
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;task1
 </UL>
 
