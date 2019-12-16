@@ -1,8 +1,0 @@
-1. easyScheduler-PendSV工程是最简单的代码，是演示程序是如何进行上下文切换，代码关键是PendSV函数的内容。
-2. easyScheduler-os level1在PendSV的基础上增加任务的概念，main.c文件的内容进行了拓展
-3. easyScheduler-os level2在level1的基础上增加更多操作系统需要考虑的问题，并使用汇编完成优先级位图算法，是与ucos不同的地方。
-4. 上述工程均只需要关注User文件夹下的代码即可，重点关注main.c和os_port.asm
-5. 上述工程在STM32F1系列上运行，使用串口1和两个LED进行演示。
-
-5.推荐拿着PendSV的程序和“教你在STM32上写RTOS”一起看。看懂了再看后面的例程。
-6.uCOS文件夹提供了uCOS-II的源码和电子书籍，可以对比看一下自己写的OS和ucos的有什么共同点和不同点。
